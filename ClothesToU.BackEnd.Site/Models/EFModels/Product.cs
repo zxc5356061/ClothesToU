@@ -1,4 +1,4 @@
-namespace ClothesToU.BackEnd.Site.Models
+namespace ClothesToU.BackEnd.Site.Models.EFModels
 {
     using System;
     using System.Collections.Generic;
@@ -33,7 +33,7 @@ namespace ClothesToU.BackEnd.Site.Models
 
         [Required]
         [StringLength(50)]
-        public string Image { get; set; }
+        public string FileName { get; set; }
 
         public bool Status { get; set; }
 
@@ -44,6 +44,8 @@ namespace ClothesToU.BackEnd.Site.Models
         [Required]
         [StringLength(10)]
         public string Color { get; set; }
+
+        public DateTime ModifiedTime { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CartItem> CartItems { get; set; }

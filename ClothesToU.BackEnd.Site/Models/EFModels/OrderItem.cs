@@ -1,4 +1,4 @@
-namespace ClothesToU.BackEnd.Site.Models
+namespace ClothesToU.BackEnd.Site.Models.EFModels
 {
     using System;
     using System.Collections.Generic;
@@ -6,17 +6,23 @@ namespace ClothesToU.BackEnd.Site.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class CartItem
+    public partial class OrderItem
     {
         public int Id { get; set; }
 
-        public int CartId { get; set; }
+        public int OrderId { get; set; }
 
         public int ProductId { get; set; }
 
-        public int Quantity { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string ProductName { get; set; }
 
-        public virtual Cart Cart { get; set; }
+        public int Qty { get; set; }
+
+        public int Price { get; set; }
+
+        public virtual Order Order { get; set; }
 
         public virtual Product Product { get; set; }
     }

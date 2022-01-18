@@ -1,4 +1,4 @@
-namespace ClothesToU.BackEnd.Site.Models
+namespace ClothesToU.BackEnd.Site.Models.EFModels
 {
     using System;
     using System.Collections.Generic;
@@ -6,23 +6,21 @@ namespace ClothesToU.BackEnd.Site.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Category
+    public partial class Cart
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Category()
+        public Cart()
         {
-            Products = new HashSet<Product>();
+            CartItems = new HashSet<CartItem>();
         }
 
         public int Id { get; set; }
 
-        [Required]
-        [StringLength(20)]
-        public string Name { get; set; }
-
-        public int DisplayOrder { get; set; }
+        public int MemberId { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<CartItem> CartItems { get; set; }
+
+        public virtual Member Member { get; set; }
     }
 }

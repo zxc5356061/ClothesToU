@@ -3,12 +3,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 
-namespace ClothesToU.BackEnd.Site.Models
+namespace ClothesToU.BackEnd.Site.Models.EFModels
 {
 	public partial class AppDbContext : DbContext
 	{
 		public AppDbContext()
-			: base("name=AppDbContext")
+			: base("name=AppDbContextConn")
 		{
 		}
 

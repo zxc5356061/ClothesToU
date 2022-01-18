@@ -1,4 +1,4 @@
-namespace ClothesToU.BackEnd.Site.Models
+namespace ClothesToU.BackEnd.Site.Models.EFModels
 {
     using System;
     using System.Collections.Generic;

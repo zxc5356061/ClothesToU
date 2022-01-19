@@ -16,8 +16,6 @@ namespace ClothesToU.BackEnd.Site.Models.ViewModels
         public int CategoryId { get; set; }
 
         [Display(Name = "標題")]
-        [Required]
-        [StringLength(50)]
         public string Name { get; set; }
 
         public string Description{ get; set; }
@@ -27,22 +25,18 @@ namespace ClothesToU.BackEnd.Site.Models.ViewModels
 
         [Display(Name = "庫存")]
         public int Stock { get; set; }
-        
-        [Required]
-        [StringLength(50)]
+     
         public string FileName { get; set; }
 
         public bool Status { get; set; }
 
 
         [Display(Name = "尺寸")]
-        [Required]
-        [StringLength(2)]
+  
         public string Size { get; set; }
 
         [Display(Name = "顏色")]
-        [Required]
-        [StringLength(10)]
+    
         public string Color { get; set; }
 
         [Display(Name = "異動日期")]

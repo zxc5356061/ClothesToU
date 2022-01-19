@@ -7,7 +7,7 @@
 [working on ] add Models/Infrastructures/Repositories/ExtMethods/ ProdEntityExts
 [v] add Models/ViewModels/ProdIndexVM
 [v] add Models/ViewModels/ProdCreateVM
-[]add Models/ViewModels/ProdEditVM
+[v]add Models/ViewModels/ProdEditVM
 
 
 

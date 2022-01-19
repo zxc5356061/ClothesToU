@@ -5,7 +5,7 @@
 [v] add Models/Infrastructures/Repositories/ProdRepository
 [v]ProdRepository實作IProdRepository
 [working on ] add Models/Infrastructures/Repositories/ExtMethods/ ProdEntityExts
-[working on] add Models/ViewModels/ProdIndexVM
+[v] add Models/ViewModels/ProdIndexVM
 [] add Models/ViewModels/ProdCreateVM
 []add Models/ViewModels/ProdEditVM
 

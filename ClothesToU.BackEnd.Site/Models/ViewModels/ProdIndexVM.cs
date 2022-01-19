@@ -23,23 +23,30 @@ namespace ClothesToU.BackEnd.Site.Models.ViewModels
         [Display(Name = "商品描述")]
         [Required]
         [StringLength(2000)]
-        public string Description { get; set; }
-
+        public string Description
+		{
+            get
+			{
+                if(string.IsNullOrEmpty(this.Description))
+				{
+                    return string.Empty;
+				}
+                int maxLength = 15;
+                return this.Description.Length>maxLength
+                    ?this.Description.Substring(0,maxLength)+"..."
+                    :this.Description;
+			}
+		}
 
         [Display(Name = "商品價格")]
         public int Price { get; set; }
 
-
         [Display(Name = "庫存")]
         public int Stock { get; set; }
-
-
-        [Display(Name = "檔名")]
+        
         [Required]
         [StringLength(50)]
         public string FileName { get; set; }
-
-
 
         public bool Status { get; set; }
 

@@ -1,4 +1,6 @@
-﻿using ClothesToU.BackEnd.Site.Models.Entities;
+﻿using ClothesToU.BackEnd.Site.Models.EFModels;
+using ClothesToU.BackEnd.Site.Models.Entities;
+using ClothesToU.BackEnd.Site.Models.Infrastructures.ExtMethods;
 using ClothesToU.BackEnd.Site.Models.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -9,14 +11,17 @@ namespace ClothesToU.BackEnd.Site.Models.Infrastructures.Repositories
 {
 	public class ProdRepository : IProdRepository
 	{
+		private AppDbContext db = new AppDbContext();
 		public void Create(ProdEntity entity)
 		{
-			throw new NotImplementedException();
+			db.Products.Add(entity.ToProd());
+			db.SaveChanges();
 		}
 
 		public void Delete(int prodId)
 		{
-			throw new NotImplementedException();
+			var model=db.Products.Find(prodId);
+			if (model == null) return;
 		}
 
 		public ProdEntity Load(int prodId)

@@ -146,8 +146,8 @@
     <Compile Include="Models\EFModels\OrderItem.cs" />
     <Compile Include="Models\EFModels\Product.cs" />
     <Compile Include="Models\Entities\ProdEntity.cs" />
-    <Compile Include="Models\Infrastructures\Repositories\ExtMethods\ProdEntityExts.cs" />
-    <Compile Include="Models\Infrastructures\Repositories\ExtMethods\ProductExts.cs" />
+    <Compile Include="Models\Infrastructures\ExtMethods\ProdEntityExts.cs" />
+    <Compile Include="Models\Infrastructures\ExtMethods\ProductExts.cs" />
     <Compile Include="Models\Infrastructures\Repositories\ProdRepository.cs" />
     <Compile Include="Models\Interfaces\IProdRepository.cs" />
     <Compile Include="Models\Services\ProdService.cs" />

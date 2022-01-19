@@ -15,12 +15,14 @@
 
 [working on ] add Models/Services/ProdService
 
-[working on]add Models/DTOs/CreateProdRequest
+[v]add Models/DTOs/CreateProdRequest
      
      [v] add ProdCreateExts class
 
-[working on]add Models/DTOs/EditProdRequest
+[v]add Models/DTOs/EditProdRequest
 
      [v] add EditCreateExts class
+
+
 
 

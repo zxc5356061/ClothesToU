@@ -4,10 +4,14 @@
 [v]add Models/Interfaces/IProdRepository
 [v] add Models/Infrastructures/Repositories/ProdRepository
 [v]ProdRepository實作IProdRepository
-[working on ] add Models/Infrastructures/Repositories/ExtMethods/ ProdEntityExts
+
+[v] add Models/Infrastructures/Repositories/ExtMethods/ ProdEntityExts
+
 [v] add Models/ViewModels/ProdIndexVM
 [v] add Models/ViewModels/ProdCreateVM
 [v]add Models/ViewModels/ProdEditVM
+
+[V] add Models/Infrastructures/Repositories/ExtMethods/ProductExts
 
 
 

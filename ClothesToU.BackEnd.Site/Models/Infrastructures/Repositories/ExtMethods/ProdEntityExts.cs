@@ -36,9 +36,6 @@ namespace ClothesToU.BackEnd.Site.Models.Infrastructures.Repositories.ExtMethods
 				Stock=source.Stock,
 				Status=source.Status,
 				Price=source.Price,
-
-
-
 			};
 
 

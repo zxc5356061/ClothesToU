@@ -13,15 +13,15 @@
 
 [V] add Models/Infrastructures/Repositories/ExtMethods/ProductExts
 
-[working on ] add Models/Services/ProdService
+[v] add Models/Services/ProdService
 
-[v]add Models/DTOs/CreateProdRequest
+    [v]add Models/DTOs/CreateProdRequest
      
-     [v] add ProdCreateExts class
+        [v] add ProdCreateExts class
 
-[v]add Models/DTOs/EditProdRequest
+    [v]add Models/DTOs/EditProdRequest
 
-     [v] add EditCreateExts class
+         [v] add EditCreateExts class
 
 
 

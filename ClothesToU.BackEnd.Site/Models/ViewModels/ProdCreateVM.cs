@@ -8,9 +8,7 @@ namespace ClothesToU.BackEnd.Site.Models.ViewModels
 {
 	public class ProdCreateVM
 	{
-        public int Id { get; set; }
-
-
+       
         [Display(Name = "商品分類")]
         public int CategoryId { get; set; }
 

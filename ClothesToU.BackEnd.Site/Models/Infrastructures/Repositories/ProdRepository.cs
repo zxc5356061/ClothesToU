@@ -14,17 +14,17 @@ namespace ClothesToU.BackEnd.Site.Models.Infrastructures.Repositories
 			throw new NotImplementedException();
 		}
 
-		public void Delete(int docId)
+		public void Delete(int prodId)
 		{
 			throw new NotImplementedException();
 		}
 
-		public ProdEntity Load(int docId)
+		public ProdEntity Load(int prodId)
 		{
 			throw new NotImplementedException();
 		}
 
-		public IEnumerable<ProdEntity> Search(string title, string description)
+		public IEnumerable<ProdEntity> Search(string name, string description)
 		{
 			throw new NotImplementedException();
 		}

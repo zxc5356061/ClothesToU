@@ -20,23 +20,7 @@ namespace ClothesToU.BackEnd.Site.Models.ViewModels
         [StringLength(50)]
         public string Name { get; set; }
 
-        [Display(Name = "商品描述")]
-        [Required]
-        [StringLength(2000)]
-        public string Description
-		{
-            get
-			{
-                if(string.IsNullOrEmpty(this.Description))
-				{
-                    return string.Empty;
-				}
-                int maxLength = 15;
-                return this.Description.Length>maxLength
-                    ?this.Description.Substring(0,maxLength)+"..."
-                    :this.Description;
-			}
-		}
+        public string Description{ get; set; }
 
         [Display(Name = "商品價格")]
         public int Price { get; set; }
@@ -62,6 +46,23 @@ namespace ClothesToU.BackEnd.Site.Models.ViewModels
         public string Color { get; set; }
 
         [Display(Name = "異動日期")]
+        [DisplayFormat(ApplyFormatInEditMode =false,DataFormatString ="{0:yyyy/MM/dd HH:mm:ss}")]
         public DateTime ModifiedTime { get; set; }
+
+        [Display(Name = "描述")]
+        public string BriefDescription
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(this.Description))
+                {
+                    return string.Empty;
+                }
+                int maxLength = 15;
+                return this.Description.Length > maxLength
+                    ? this.Description.Substring(0, maxLength) + "..."
+                    : this.Description;
+            }
+        }
     }
 }

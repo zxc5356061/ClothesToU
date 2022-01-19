@@ -12,7 +12,7 @@
 [v]add Models/ViewModels/ProdEditVM
 
 [V] add Models/Infrastructures/Repositories/ExtMethods/ProductExts
-
+[] add Models/Services/ProdService
 
 
 

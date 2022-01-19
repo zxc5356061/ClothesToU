@@ -13,6 +13,6 @@ namespace ClothesToU.BackEnd.Site.Models.Interfaces
 		void Update(ProdEntity entity);
 		void Delete(int docId);
 		IEnumerable<ProdEntity> Search(string title, string description);
-		ProdEntity Load(int docId);
+		ProdEntity Load(int prodId);
 	}
 }

@@ -148,6 +148,7 @@
     <Compile Include="Models\Infrastructures\Repositories\ExtMethods\ProductExts.cs" />
     <Compile Include="Models\Infrastructures\Repositories\ProdRepository.cs" />
     <Compile Include="Models\Interfaces\IProdRepository.cs" />
+    <Compile Include="Models\Services\ProdService.cs" />
     <Compile Include="Models\ViewModels\ProdCreateVM.cs" />
     <Compile Include="Models\ViewModels\ProdEditVM.cs" />
     <Compile Include="Models\ViewModels\ProdIndexVM.cs" />

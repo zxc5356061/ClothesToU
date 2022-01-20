@@ -24,6 +24,25 @@
          [v] add EditCreateExts class
 
 [v]  ProdRepository
-[working on] ProductsControllers 
+
+[working on] ProductsControllers
+ [v] (1) Index
+ [] (2) Create*2
+ [] (3) Edit *2
+ [] (4) Delete
+ [] (5) TryDeleteFile
+ [] (6) TrySaveFile
+ [] (7) SaveFile
+ [] (8) Index2 前台商品呈現 
+
+
+ [working on] Views/Products/
+ [working on ] (1) Index
+ [] (2) Create
+ [] (3) Edit
+ [] (4) Delete
+ [] (5) Index2 前台商品呈現 
+ 
+  
 
 

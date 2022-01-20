@@ -28,7 +28,11 @@ namespace ClothesToU.BackEnd.Site.Controllers
                 .Search(name, description)
                 .Select(x => x.ToIndexVM());
 
-            ViewBag.
+            ViewBag.C_Name =name;
+            ViewBag.C_Description = description;
+            return View(data);
         }
+
+        
     }
 }

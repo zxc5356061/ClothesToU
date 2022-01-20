@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClothesToU.BackEnd.Site", "ClothesToU.BackEnd.Site\ClothesToU.BackEnd.Site.csproj", "{97E8EC03-C9AA-4FA9-AFCE-6EF50144DBF6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "U.Utilities", "U.Utilities\U.Utilities.csproj", "{EBA6C94C-E152-4855-968C-7CBFDE057C75}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{97E8EC03-C9AA-4FA9-AFCE-6EF50144DBF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97E8EC03-C9AA-4FA9-AFCE-6EF50144DBF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97E8EC03-C9AA-4FA9-AFCE-6EF50144DBF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBA6C94C-E152-4855-968C-7CBFDE057C75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBA6C94C-E152-4855-968C-7CBFDE057C75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBA6C94C-E152-4855-968C-7CBFDE057C75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBA6C94C-E152-4855-968C-7CBFDE057C75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

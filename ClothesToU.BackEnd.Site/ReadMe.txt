@@ -29,19 +29,22 @@
  [v]  Index
  [v] (2) Create*2
  [v] SaveFile
- [working on] Edit *2
+ [v] add Files 資料夾
+ [v] Edit *2
  [v] Delete
  [v] TryDeleteFile
  [v] TrySaveFile
 
+
  [] (8) Index2 前台商品呈現 
 
- [v] add Files 資料夾
+ 
 
  [working on] Views/Products/
  [v] (1) Index
  [v] (2) Create
- [working on] (3) Edit
+ [v] (3) Edit
+ [v]add ImageHelper
  [] (4) Delete
  [] (5) Index2 前台商品呈現 
 

@@ -37,7 +37,7 @@
 
 
  [working on] Views/Products/
- [working on ] (1) Index
+ [v] (1) Index
  [] (2) Create
  [] (3) Edit
  [] (4) Delete

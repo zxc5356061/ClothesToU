@@ -8,6 +8,7 @@ namespace ClothesToU.BackEnd.Site.Models.ViewModels
 {
 	public class ProdEditVM
     {
+        [Display(Name = "商品編號")]
         public int Id { get; set; }
 
 

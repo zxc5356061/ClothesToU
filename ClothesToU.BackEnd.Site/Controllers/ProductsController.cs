@@ -33,6 +33,6 @@ namespace ClothesToU.BackEnd.Site.Controllers
             return View(data);
         }
 
-        
+       
     }
 }

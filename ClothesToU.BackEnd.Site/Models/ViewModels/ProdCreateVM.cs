@@ -30,9 +30,6 @@ namespace ClothesToU.BackEnd.Site.Models.ViewModels
         [Display(Name = "檔案名稱")]
         public string FileName { get; set; }
 
-        public bool Status { get; set; }
-
-
         [Display(Name = "尺寸")]
         [Required]
         [MaxLength(2)]

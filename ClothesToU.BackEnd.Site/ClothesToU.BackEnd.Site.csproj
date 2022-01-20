@@ -147,6 +147,7 @@
     <Compile Include="Models\EFModels\OrderItem.cs" />
     <Compile Include="Models\EFModels\Product.cs" />
     <Compile Include="Models\Entities\ProdEntity.cs" />
+    <Compile Include="Models\Infrastructures\ExtMethods\ProdEditVMExts.cs" />
     <Compile Include="Models\Infrastructures\ExtMethods\ProdEntityExts.cs" />
     <Compile Include="Models\Infrastructures\ExtMethods\ProductExts.cs" />
     <Compile Include="Models\Infrastructures\Repositories\ProdRepository.cs" />
@@ -195,6 +196,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

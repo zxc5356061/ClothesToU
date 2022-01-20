@@ -8,7 +8,7 @@ namespace ClothesToU.BackEnd.Site.Models.EFModels
 	public partial class AppDbContext : DbContext
 	{
 		public AppDbContext()
-			: base("name=AppDbContextConn")
+			: base("name=AppDbContext2")
 		{
 		}
 
@@ -22,11 +22,6 @@ namespace ClothesToU.BackEnd.Site.Models.EFModels
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
-			modelBuilder.Entity<Category>()
-				.HasMany(e => e.Products)
-				.WithRequired(e => e.Category)
-				.WillCascadeOnDelete(false);
-
 			modelBuilder.Entity<Member>()
 				.Property(e => e.Mobile)
 				.IsFixedLength();

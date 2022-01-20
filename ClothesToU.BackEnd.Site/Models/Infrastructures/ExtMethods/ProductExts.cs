@@ -14,6 +14,7 @@ namespace ClothesToU.BackEnd.Site.Models.Infrastructures.ExtMethods
 			{
 				Id = source.Id,
 				Name = source.Name,
+				CategoryId = source.CategoryId,
 				Description = source.Description,
 				ModifiedTime = source.ModifiedTime,
 				FileName = source.FileName,

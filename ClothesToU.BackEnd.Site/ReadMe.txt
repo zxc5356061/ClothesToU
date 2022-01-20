@@ -29,10 +29,10 @@
  [v]  Index
  [v] (2) Create*2
  [v] SaveFile
- [] Edit *2
- [] Delete
- [] TryDeleteFile
- [] TrySaveFile
+ [working on] Edit *2
+ [v] Delete
+ [v] TryDeleteFile
+ [v] TrySaveFile
 
  [] (8) Index2 前台商品呈現 
 
@@ -40,8 +40,8 @@
 
  [working on] Views/Products/
  [v] (1) Index
- [working on ] (2) Create
- [] (3) Edit
+ [v] (2) Create
+ [working on] (3) Edit
  [] (4) Delete
  [] (5) Index2 前台商品呈現 
 

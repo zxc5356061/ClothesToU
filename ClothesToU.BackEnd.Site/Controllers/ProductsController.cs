@@ -24,6 +24,15 @@ namespace ClothesToU.BackEnd.Site.Controllers
             repository = new ProdRepository();
         }
 
+        //前台商品分類呈現
+        public ActionResult Index2()
+        {
+            var data = repository
+                .Search(null, null)
+                .Select(x => x.ToIndexVM());
+
+            return View(data);
+        }
 
         public ActionResult Index(string name, string description)
         {

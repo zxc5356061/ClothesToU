@@ -42,5 +42,16 @@ namespace ClothesToU.BackEnd.Site.Models.ViewModels
         [Display(Name = "顏色")]
         [MaxLength(10)]
         public string Color { get; set; }
+
+        //public bool IsImage
+        //{
+        //    get
+        //    {
+        //        if (this.FileName == null) return false;//防呆
+        //        string ext = System.IO.Path.GetExtension(this.FileName).ToLower();
+        //        string[] imageExtensions = new string[] { ".gif", ".jfif", ".png", ".jpg", ".jpeg", ".bmp" };
+        //        return imageExtensions.Contains(ext);
+        //    }
+        //}
     }
 }

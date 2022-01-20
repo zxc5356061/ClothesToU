@@ -14,16 +14,17 @@
             <div class="col-sm-12">
                 標題: <input type="text" name="name" class="form-control" value="@ViewBag.C_Name">
                 描述: <input type="text" name="description" class="form-control" value="@ViewBag.C_Description">
-                    <input type="submit" value="查詢" class=" btn btn-primary" style="background-color:palevioletred;border-style:hidden;
-                        color:whitesmoke"/>
+                    <input type="submit" value="查詢" class=" btn btn-primary" style="background-color: orange;color:black; border-style: hidden; font-weight: bold;"/>
             </div>
         </div>
     </div>
 </form>
 <br />
+
 <p>
-    @Html.ActionLink("新增商品", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
+
 <table class="table">
     <tr>
         <th>
@@ -94,9 +95,8 @@
             </td>
 
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) 
+                
             </td>
         </tr>
     }

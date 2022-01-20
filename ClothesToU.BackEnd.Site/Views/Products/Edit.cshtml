@@ -11,13 +11,17 @@
 
 @using (Html.BeginForm("Edit", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
+    @Html.AntiForgeryToken()
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                @if (ImageHelper.IsImage(Model.FileName))
+                @if (ImageHelper.IsImage(Model.FileName) == true)
                 {
-                    <img src="~/Files/@Model.FileName" style="width:100%" />
+                    <img src="~/Files/@Model.FileName" alt="Alternate Text" style="width: 300px" />
                 }
+                <br />
+                <a href="~/Files/@Model.FileName">檢視全尺寸圖片</a>
+                <br />
             </div>
             <div class="col-md-8">
                 @using (Html.BeginForm())
@@ -26,7 +30,7 @@
 
 
                     <div class="form-horizontal">
-                     
+
                         <hr />
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         @Html.HiddenFor(model => model.Id)
@@ -89,6 +93,7 @@
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-10">
                                 <input type="submit" value="Save" class="btn btn-default" />
+                                <input type="submit" value="Delete" class="btn btn-danger" id="btnDelete" name="btnDelete" />
                             </div>
                         </div>
                     </div>

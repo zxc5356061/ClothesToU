@@ -26,22 +26,26 @@
 [v]  ProdRepository
 
 [working on] ProductsControllers
- [v] (1) Index
- [] (2) Create*2
- [] (3) Edit *2
- [] (4) Delete
- [] (5) TryDeleteFile
- [] (6) TrySaveFile
- [] (7) SaveFile
+ [v]  Index
+ [v] (2) Create*2
+ [v] SaveFile
+ [] Edit *2
+ [] Delete
+ [] TryDeleteFile
+ [] TrySaveFile
+
  [] (8) Index2 前台商品呈現 
 
+ [v] add Files 資料夾
 
  [working on] Views/Products/
  [v] (1) Index
- [] (2) Create
+ [working on ] (2) Create
  [] (3) Edit
  [] (4) Delete
  [] (5) Index2 前台商品呈現 
+
+ 
  
   
 

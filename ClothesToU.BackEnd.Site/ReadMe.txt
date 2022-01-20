@@ -36,7 +36,7 @@
  [v] TrySaveFile
 
 
- [working on ]  Index2 前台商品呈現 
+ [v]  Index2 全部商品頁  for前台
 
  
 
@@ -45,7 +45,7 @@
  [v] (2) Create
  [v] (3) Edit
  [v]add ImageHelper
- [working on ] (4) Index2 前台商品呈現 
+ [v] (4) Index2 前台商品呈現 
 
  
  

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ClothesToU.BackEnd.Site.Models.ViewModels.ProdIndexVM>
+
+@{
+    ViewBag.Title = "Index2";
+}
+
+<h2>全部商品</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img src="/Files/@item.FileName" style="width:100%; height:350px; object-fit:cover">
+                <div class="caption">
+                    <h3>@item.Name</h3>
+                    <p>@item.Description</p>
+                    <p>
+                        <a href="#" class="btn btn-primary " style="background-color:palevioletred;border-style:hidden;
+                        color:whitesmoke" role="button">加入購物車</a>
+                        <a href="#" class="btn btn-default" role="button">馬上購買</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+
+</table>

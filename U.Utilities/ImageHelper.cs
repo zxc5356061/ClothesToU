@@ -15,6 +15,7 @@ namespace U.Utilities
 			string ext = System.IO.Path.GetExtension(fileName).ToLower();
 			string[] imageExts = new string[] { ".gif", ".bmp", ".png", ".jpg", ".tif", ".tiff", ".jfif" };
 			return imageExts.Contains(ext);
+			//test
 
 		}
 	}

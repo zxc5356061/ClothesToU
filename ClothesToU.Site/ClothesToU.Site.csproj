@@ -146,6 +146,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Core\Interfaces\ILoginRepository.cs" />
     <Compile Include="Models\Core\Interfaces\IRegisterRepository.cs" />
     <Compile Include="Models\Core\MemberService.cs" />
     <Compile Include="Models\EFModels\AppDbContext.cs" />
@@ -156,15 +157,21 @@
     <Compile Include="Models\EFModels\Order.cs" />
     <Compile Include="Models\EFModels\OrderItem.cs" />
     <Compile Include="Models\EFModels\Product.cs" />
+    <Compile Include="Models\Entities\LoginEntity.cs" />
     <Compile Include="Models\Entities\RegisterEntity.cs" />
+    <Compile Include="Models\Extensions\LoginEntityExt.cs" />
+    <Compile Include="Models\Extensions\LoginRequestExt.cs" />
+    <Compile Include="Models\Extensions\LoginVMExt.cs" />
     <Compile Include="Models\Extensions\RegisterEntityExt.cs" />
     <Compile Include="Models\Extensions\RegisterRequestExt.cs" />
     <Compile Include="Models\Extensions\RegisterVMExt.cs" />
     <Compile Include="Models\Infrastractures\HashUtility.cs" />
+    <Compile Include="Models\Repositories\LoginRepository.cs" />
     <Compile Include="Models\Repositories\RegisterRepository.cs" />
-    <Compile Include="Models\UseCases\RegisterCommand.cs" />
-    <Compile Include="Models\UseCases\RegisterRequest.cs" />
-    <Compile Include="Models\UseCases\RegisterResponse.cs" />
+    <Compile Include="Models\UseCases\Register\RegisterCommand.cs" />
+    <Compile Include="Models\UseCases\Register\RegisterRequest.cs" />
+    <Compile Include="Models\UseCases\Register\RegisterResponse.cs" />
+    <Compile Include="Models\ViewModels\LoginVM.cs" />
     <Compile Include="Models\ViewModels\RegisterVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -210,6 +217,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\UseCases\Login\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

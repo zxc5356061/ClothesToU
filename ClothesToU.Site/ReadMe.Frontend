@@ -1,4 +1,13 @@
-﻿*** MemberService ***
+﻿How to Co-works on git:
+1. Find uuhuang918/ClothesToU
+2. Click "Fork"
+3. Copy the forked URL "https://github.com/zxc5356061/ClothesToU" and clone
+4. Write my code.
+5. Create a new branch named "dev" based on "Origin/Master"
+6. Commit and pull
+7. Create Pull Request
+
+*** MemberService ***
 ## [v] New Member Register
 ## [working] Member Login
 ## [] Forgot Password

@@ -1,0 +1,119 @@
+﻿*** MemberService ***
+## [v] New Member Register
+## [working] Member Login
+## [] Forgot Password
+## [] Update Member data
+## [] MemberData CRUD
+======================
+
+## New Member Register
+[v] add /Models/EFModels/AppDbContext
+
+[v] add /Models/Core/ViewModels/RegisterVM
+		-public string Account { get; set; }
+		-public string Password { get; set; }
+		-public string ConfirmPassword { get; set; }
+		-public string Name { get; set; }
+		-public string Mobile { get; set; }
+		-public string Address { get; set; }
+
+[v] add /Models/UseCases/RegisterRequest class
+		-public string Account { get; set; }
+		-public string Password { get; set; }
+		-public string Name { get; set; }
+		-public string Mobile { get; set; }
+		-public string Address { get; set; }
+
+[v] add /Models/UseCases/RegisterResponse class
+		-public bool IsSuccess { get; set; }
+		-public string ErrorMessage { get; set; }
+		-public RegisterEntity Data { get; set; }
+
+[v] add /Models/Entities/RegisterEntity class
+		-public string Account { get; set; }
+		-public string Password { get; set; }
+		-public string Name { get; set; }
+		-public string Mobile { get; set; }
+		-public string Address { get; set; }
+		-public string ConfirmCode { get; set; }
+		-public const string SALT = "!@#";
+		-public string EncryptedPassword { get; }
+
+[v] add /Models/Extensions
+		-RegisterEntityExt
+			public static Member ToEFMember(this RegisterEntity source)
+		-RegisterRequestExt
+			public static RegisterEntity ToRegisterEntity(this RegisterRequest source)
+		-RegisterVMExt
+			public static RegisterRequest ToRegisterRequest(this RegisterVM source)
+
+[v] add /Models/Core/MemberServices
+		-public RegisterResponse CreateNewMember(RegisterRequest request)
+
+[v] add /Controllers/MembersController/
+		-public ActionResult Index()
+		-public ActionResult Register()
+		-[HttpPost]public ActionResult Register(RegisterVM registerVM)
+
+[v] add /Models/UseCases/RegisterCommand class( with Execute method)
+		-public RegisterResponse Execute(RegisterVM registerVM)
+
+[v] add IRegisterRepository & RegisterRepository
+		-bool IsExist(string account);
+		-void Create(RegisterEntity entity);
+
+[v] add /Views/Members/Register.cshtml(create)
+[v] add /Views/Members/Register.cshtml(empty)
+======================
+
+## Member Login
+[v] modify web.config, add Authenthcation node
+	  <system.web>
+		<compilation debug="true" targetFramework="4.8" />
+		<httpRuntime targetFramework="4.8" />
+		  <authentication mode="Forms">
+			<forms name="event.web" loginUrl="/Home/Login/" defaultUrl="/Home/Index/">
+			</forms>
+		  </authentication>
+	  </system.web>
+
+[v] modify MemberController.About, add "Authorize" attribute(This is a DemoPage.)
+
+[v] add MembersController.Logout()
+
+[v] add /Models/ViewModels/LoginVM.cs
+		-public string Account { get; set; }
+		-public string Password { get; set; }
+
+[v] add /Models/UseCases/LoginRequest class
+		-public string Account { get; set; }
+		-public string Password { get; set; }
+
+[v] add /Models/UseCases/LoginResponse class
+		-public bool IsSuccess { get; set; }
+		-public string ErrorMessage { get; set; }
+		-public LoginEntity Data { get; set; }
+
+[v] add /LoginEntity: RegisterEntity
+
+[] add /Models/Extensions
+		-LoginEntityExt
+			public static Member ToEFMember(this LoginEntity source)
+		-LoginRequestExt
+			public static LoginEntity ToLoginEntity(this LoginRequest source)
+		-LoginVMExt
+			public static LoginRequest ToLoginRequest(this LoginVM source)
+
+[] add ILoginRepository & LoginRepository
+		-LoginEntity Load(string account);
+
+[] add /Models/UseCases/LoginCommand class( with Execute method)
+		-public LoginResponse Execute(LoginVM LoginVM)
+
+[] add MembersController.Login(), and create "Login" view page
+[] add /Models/DTOs/LoginResponse.cs
+[] add MemberRepository.Login(account)
+[] add MemberService.Login(account, password)
+[] add MemberController.Login() httppost action
+		使用表單認證,寫入 cookie
+[] modify _Layout page, add "Login/Logout" links

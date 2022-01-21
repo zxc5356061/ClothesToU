@@ -224,6 +224,16 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClothesToU.BackEnd.Site\ClothesToU.BackEnd.Site.csproj">
+      <Project>{97e8ec03-c9aa-4fa9-afce-6ef50144dbf6}</Project>
+      <Name>ClothesToU.BackEnd.Site</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\U.Utilities\U.Utilities.csproj">
+      <Project>{eba6c94c-e152-4855-968c-7cbfde057c75}</Project>
+      <Name>U.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

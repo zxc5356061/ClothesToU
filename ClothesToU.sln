@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClothesToU.BackEnd.Site", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "U.Utilities", "U.Utilities\U.Utilities.csproj", "{EBA6C94C-E152-4855-968C-7CBFDE057C75}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClothesToU.Site", "..\..\..\..\Downloads\ClothesToU_20220118-master\ClothesToU_20220118-master\ClothesToU.Site\ClothesToU.Site.csproj", "{AD8843BF-6474-4398-B17F-F99487D3BE61}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{EBA6C94C-E152-4855-968C-7CBFDE057C75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBA6C94C-E152-4855-968C-7CBFDE057C75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBA6C94C-E152-4855-968C-7CBFDE057C75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD8843BF-6474-4398-B17F-F99487D3BE61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD8843BF-6474-4398-B17F-F99487D3BE61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD8843BF-6474-4398-B17F-F99487D3BE61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD8843BF-6474-4398-B17F-F99487D3BE61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

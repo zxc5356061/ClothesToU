@@ -159,6 +159,7 @@
     <Compile Include="Models\EFModels\Product.cs" />
     <Compile Include="Models\Entities\LoginEntity.cs" />
     <Compile Include="Models\Entities\RegisterEntity.cs" />
+    <Compile Include="Models\Entities\SaltEntity.cs" />
     <Compile Include="Models\Extensions\LoginEntityExt.cs" />
     <Compile Include="Models\Extensions\LoginRequestExt.cs" />
     <Compile Include="Models\Extensions\LoginVMExt.cs" />
@@ -168,6 +169,9 @@
     <Compile Include="Models\Infrastractures\HashUtility.cs" />
     <Compile Include="Models\Repositories\LoginRepository.cs" />
     <Compile Include="Models\Repositories\RegisterRepository.cs" />
+    <Compile Include="Models\UseCases\Login\LoginCommand.cs" />
+    <Compile Include="Models\UseCases\Login\LoginRequest.cs" />
+    <Compile Include="Models\UseCases\Login\LoginResponse.cs" />
     <Compile Include="Models\UseCases\Register\RegisterCommand.cs" />
     <Compile Include="Models\UseCases\Register\RegisterRequest.cs" />
     <Compile Include="Models\UseCases\Register\RegisterResponse.cs" />
@@ -217,7 +221,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\UseCases\Login\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

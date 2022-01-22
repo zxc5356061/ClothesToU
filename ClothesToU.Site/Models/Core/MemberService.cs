@@ -1,5 +1,6 @@
 ﻿using ClothesToU.Site.Models.Core.Interfaces;
 using ClothesToU.Site.Models.Entities;
+using ClothesToU.Site.Models.Infrastractures;
 using ClothesToU.Site.Models.Repositories;
 using ClothesToU.Site.Models.UseCases;
 using System;
@@ -11,20 +12,28 @@ namespace ClothesToU.Site.Models.Core
 {
 	public class MemberService
 	{
-		private readonly IRegisterRepository repository;
+		private readonly IRegisterRepository registerRepository;
+		private readonly ILoginRepository loginRepository;
 		public MemberService()
 		{
-			this.repository = new RegisterRepository();
+			this.registerRepository = new RegisterRepository();
+			this.loginRepository = new LoginRepository();
 		}
-		public MemberService(IRegisterRepository repo)
+		public MemberService(IRegisterRepository _registerRepository)
 		{
-			this.repository = repo;
+			this.registerRepository = _registerRepository;
 		}
+		public MemberService(ILoginRepository _loginRepository)
+		{
+			this.loginRepository = _loginRepository;
+		}
+
+
 
 		public RegisterResponse CreateNewMember(RegisterRequest request)
 		{
 			// 判斷帳號是否已存在
-			if (repository.IsExist(request.Account))
+			if (registerRepository.IsExist(request.Account))
 			{
 				return new RegisterResponse
 				{
@@ -46,7 +55,7 @@ namespace ClothesToU.Site.Models.Core
 				Address = request.Address,
 				ConfirmCode = confirmCode,
 			};
-			repository.Create(registerEntity);
+			registerRepository.Create(registerEntity);
 
 			return new RegisterResponse
 			{
@@ -54,6 +63,20 @@ namespace ClothesToU.Site.Models.Core
 				Data = registerEntity
 			};
 
+		}
+
+		public bool IsValid(string account, string password)
+        {
+			LoginEntity member = loginRepository.Load(account);//去撈資料庫的會員資料。
+			string inputPassword = HashUtility.ToSHA256(password, SaltEntity.SALT);
+			if (member == null) { return false; }//如果會員不存在。
+			if (member.EncryptedPassword == inputPassword) { return true; }//如果會員存在，且密碼正確。
+			return false;
+		}
+
+		public string ProcessLogin(string account, bool rememberMe, out HttpCookie cookie)
+        {
+			throw new NotImplementedException();
 		}
 	}
 }

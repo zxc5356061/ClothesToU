@@ -103,7 +103,9 @@
 		-public string ErrorMessage { get; set; }
 		-public LoginEntity Data { get; set; }
 
-[v] add /LoginEntity: RegisterEntity
+[v] add /LoginEntity
+        -public string Account { get; set; }
+        -public string EncryptedPassword { get; set; }
 
 [] add /Models/Extensions
 		-LoginEntityExt
@@ -112,6 +114,13 @@
 			public static LoginEntity ToLoginEntity(this LoginRequest source)
 		-LoginVMExt
 			public static LoginRequest ToLoginRequest(this LoginVM source)
+
+[] add /MemberService
+		-public bool IsValid(string account, string password)
+		-public string ProcessLogin(string account, bool rememberMe, out HttpCookie cookie)
+
+[] add /LoginCommand
+		-
 
 [] add ILoginRepository & LoginRepository
 		-LoginEntity Load(string account);

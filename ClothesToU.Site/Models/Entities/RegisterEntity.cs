@@ -6,7 +6,7 @@ using System.Web;
 
 namespace ClothesToU.Site.Models.Entities
 {
-    public class RegisterEntity
+    public class RegisterEntity:SaltEntity
     {
         public string Account { get; set; }
 
@@ -19,8 +19,6 @@ namespace ClothesToU.Site.Models.Entities
         public string Address { get; set; }
 
         public string ConfirmCode { get; set; }
-
-        public const string SALT = "!@#";
 
         public string EncryptedPassword
         {

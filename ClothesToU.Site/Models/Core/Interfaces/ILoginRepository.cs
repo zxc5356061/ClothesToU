@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ClothesToU.Site.Models.Core.Interfaces
 {
-    internal interface ILoginRepository
+    public interface ILoginRepository
     {
         LoginEntity Load(string account);
     }

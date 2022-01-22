@@ -5,10 +5,8 @@ using System.Web;
 
 namespace ClothesToU.Site.Models.Entities
 {
-    public class LoginEntity
+    public class SaltEntity
     {
-        public string Account { get; set; }
-        public string EncryptedPassword { get; set; }
-
+        public const string SALT = "!@#";
     }
 }

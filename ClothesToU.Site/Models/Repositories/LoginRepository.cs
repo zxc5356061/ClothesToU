@@ -26,7 +26,7 @@ namespace ClothesToU.Site.Models.Repositories
             return new LoginEntity
             {
                 Account = member.Account,
-                Password = member.Password//EncryptedPassword
+                EncryptedPassword = member.Password//EncryptedPassword
             };
         }
     }

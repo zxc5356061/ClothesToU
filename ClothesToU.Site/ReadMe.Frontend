@@ -115,7 +115,7 @@
 		-LoginVMExt
 			public static LoginRequest ToLoginRequest(this LoginVM source)
 
-[] add /MemberService
+[v] add /MemberService
 		-public bool IsValid(string account, string password)
 		-public string ProcessLogin(string account, bool rememberMe, out HttpCookie cookie)
 

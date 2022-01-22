@@ -30,7 +30,7 @@ namespace ClothesToU.Site.Models.Core
 		}
 
 
-
+		//New Register
 		public RegisterResponse CreateNewMember(RegisterRequest request)
 		{
 			// 判斷帳號是否已存在
@@ -64,14 +64,15 @@ namespace ClothesToU.Site.Models.Core
 				Data = registerEntity
 			};
 
-		}
+		}//New Register_end
 
+		//Member Login
 		public bool IsValid(string account, string password)
         {
 			LoginEntity member = loginRepository.Load(account);//去撈資料庫的會員資料。
-			string inputPassword = HashUtility.ToSHA256(password, SaltEntity.SALT);
+			string passwordcheck = HashUtility.ToSHA256(password, SaltEntity.SALT);
 			if (member == null) { return false; }//如果會員不存在。
-			if (member.EncryptedPassword == inputPassword) { return true; }//如果會員存在，且密碼正確。
+			if (member.EncryptedPassword == passwordcheck) { return true; }//如果會員存在，且密碼正確。
 			return false;
 		}
 
@@ -82,7 +83,7 @@ namespace ClothesToU.Site.Models.Core
 			//Refer to Global.asax.cs
 			//將userID, Level存到Cookie中
 
-			////取得目前的使用者屬於哪個群組
+			////取得目前的使用者屬於哪個群組 >若要加入UserRoles，則DTO, Entities與Extensions都要加property
 			//string userRoles = loginRepository.Load(account).Roles;//Get user roles from EmployeeEntity
 			
 			//建立一張認證票
@@ -103,6 +104,6 @@ namespace ClothesToU.Site.Models.Core
 			//導引回目的地的網頁
 			string url = FormsAuthentication.GetRedirectUrl(account, true); //第2個參數沒用
 			return url;
-		}
+		}//Member Login_end
 	}
 }

@@ -9,9 +9,9 @@ namespace ClothesToU.Site.Models.Extensions
 {
     public static partial class LoginRequestExt
     {
-        public static LoginEntity ToLoginEntity(this LoginRequest source)
-        {
+        //public static LoginEntity ToLoginEntity(this LoginRequest source)
+        //{
 
-        }
+        //}
     }
 }

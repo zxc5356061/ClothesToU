@@ -9,7 +9,7 @@
 
 *** MemberService ***
 ## [v] New Member Register
-## [working] Member Login
+## [working on] Member Login
 ## [] Forgot Password
 ## [] Update Member data
 ## [] MemberData CRUD
@@ -107,7 +107,7 @@
         -public string Account { get; set; }
         -public string EncryptedPassword { get; set; }
 
-[] add /Models/Extensions
+[v] add /Models/Extensions
 		-LoginVMExt
 			public static LoginRequest ToLoginRequest(this LoginVM source)
 
@@ -115,19 +115,11 @@
 		-public bool IsValid(string account, string password)
 		-public string ProcessLogin(string account, bool rememberMe, out HttpCookie cookie)
 
-[] add /LoginCommand
+[v] add /LoginCommand
 		-public LoginResponse Execute(LoginVM loginVM)
 
-[] add ILoginRepository & LoginRepository
+[v] add ILoginRepository & LoginRepository
 		-LoginEntity Load(string account);
 
-[] add /Models/UseCases/LoginCommand class( with Execute method)
-		-public LoginResponse Execute(LoginVM LoginVM)
-
-[] add MembersController.Login(), and create "Login" view page
-[] add /Models/DTOs/LoginResponse.cs
-[] add MemberRepository.Login(account)
-[] add MemberService.Login(account, password)
-[] add MemberController.Login() httppost action
-		使用表單認證,寫入 cookie
+[working on] add MembersController.Login(), and create "Login" view page
 [] modify _Layout page, add "Login/Logout" links

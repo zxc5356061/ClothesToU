@@ -16,10 +16,17 @@ namespace ClothesToU.Site.Models.UseCases.Login
             
             LoginRequest request = loginVM.ToLoginRequest();
 
-            LoginResponse response = new LoginResponse();
-            response.IsSuccess = service.IsValid(request);
+            return new LoginResponse
+            {
+                IsSuccess = service.IsValid(request),
+            };
+        }
 
-            return response;
+        public string ToProcessLogin(string account, bool rememberMe, out HttpCookie cookie)
+        {
+            MemberService getURL = new MemberService();
+            return getURL.ProcessLogin(account, rememberMe, out cookie).ToString();
+            
         }
     }
 }

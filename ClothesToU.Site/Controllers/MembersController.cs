@@ -1,4 +1,7 @@
-﻿using ClothesToU.Site.Models.UseCases;
+﻿using ClothesToU.Site.Models.Core.Interfaces;
+using ClothesToU.Site.Models.Repositories;
+using ClothesToU.Site.Models.UseCases;
+using ClothesToU.Site.Models.UseCases.Login;
 using ClothesToU.Site.Models.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -12,11 +15,6 @@ namespace ClothesToU.Site.Controllers
     public class MembersController : Controller
     {
         // GET: Members
-        public ActionResult Index()
-        {
-            return View();
-        }
-
         public ActionResult Register()
         {
             return View();
@@ -60,7 +58,19 @@ namespace ClothesToU.Site.Controllers
         [HttpPost]
         public ActionResult Login(LoginVM loginVM)
         {
-            throw new NotImplementedException();
+            LoginCommand loginCommand = new LoginCommand();
+            if (loginCommand.Execute(loginVM).IsSuccess == true)
+            {
+                // 記住登入成功的會員
+                var rememberMe = false;
+                string returnUrl = loginCommand.ToProcessLogin(loginVM.Account, rememberMe, out HttpCookie cookie);
+                Response.Cookies.Add(cookie);
+                return Redirect(returnUrl);
+            }
+
+            ModelState.AddModelError(string.Empty, "您的帳號或密碼有誤!");
+            return this.View();
         }
+
     }
 }

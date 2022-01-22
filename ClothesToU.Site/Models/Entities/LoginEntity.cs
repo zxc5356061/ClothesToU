@@ -9,6 +9,7 @@ namespace ClothesToU.Site.Models.Entities
     {
         public string Account { get; set; }
         public string EncryptedPassword { get; set; }
+        //public string Roles { get; set; }
 
     }
 }

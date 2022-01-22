@@ -3,6 +3,7 @@ using ClothesToU.Site.Models.Entities;
 using ClothesToU.Site.Models.Infrastractures;
 using ClothesToU.Site.Models.Repositories;
 using ClothesToU.Site.Models.UseCases;
+using ClothesToU.Site.Models.UseCases.Login;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -67,10 +68,10 @@ namespace ClothesToU.Site.Models.Core
 		}//New Register_end
 
 		//Member Login
-		public bool IsValid(string account, string password)
+		public bool IsValid(LoginRequest request)
         {
-			LoginEntity member = loginRepository.Load(account);//去撈資料庫的會員資料。
-			string passwordcheck = HashUtility.ToSHA256(password, SaltEntity.SALT);
+			LoginEntity member = loginRepository.Load(request.Account);//去撈資料庫的會員資料。
+			string passwordcheck = HashUtility.ToSHA256(request.Password, SaltEntity.SALT);
 			if (member == null) { return false; }//如果會員不存在。
 			if (member.EncryptedPassword == passwordcheck) { return true; }//如果會員存在，且密碼正確。
 			return false;

@@ -108,10 +108,6 @@
         -public string EncryptedPassword { get; set; }
 
 [] add /Models/Extensions
-		-LoginEntityExt
-			public static Member ToEFMember(this LoginEntity source)
-		-LoginRequestExt
-			public static LoginEntity ToLoginEntity(this LoginRequest source)
 		-LoginVMExt
 			public static LoginRequest ToLoginRequest(this LoginVM source)
 
@@ -120,7 +116,7 @@
 		-public string ProcessLogin(string account, bool rememberMe, out HttpCookie cookie)
 
 [] add /LoginCommand
-		-
+		-public LoginResponse Execute(LoginVM loginVM)
 
 [] add ILoginRepository & LoginRepository
 		-LoginEntity Load(string account);

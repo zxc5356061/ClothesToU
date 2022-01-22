@@ -1,4 +1,4 @@
-﻿How to Co-works on git:
+﻿*** How to Co-work on git ***
 1. Find uuhuang918/ClothesToU
 2. Click "Fork"
 3. Copy the forked URL "https://github.com/zxc5356061/ClothesToU" and clone
@@ -9,8 +9,8 @@
 
 *** MemberService ***
 ## [v] New Member Register
-## [working on] Member Login
-## [] Forgot Password
+## [v] Member Login
+## [Working On] Forgot Password
 ## [] Update Member data
 ## [] MemberData CRUD
 ======================
@@ -100,10 +100,8 @@
 
 [v] add /Models/UseCases/LoginResponse class
 		-public bool IsSuccess { get; set; }
-		-public string ErrorMessage { get; set; }
-		-public LoginEntity Data { get; set; }
 
-[v] add /LoginEntity
+[v] add /LoginEntity(從資料庫撈Member的資料，以便與使用者輸入的LoginRequest比對是否一致)
         -public string Account { get; set; }
         -public string EncryptedPassword { get; set; }
 
@@ -121,5 +119,26 @@
 [v] add ILoginRepository & LoginRepository
 		-LoginEntity Load(string account);
 
-[working on] add MembersController.Login(), and create "Login" view page
-[] modify _Layout page, add "Login/Logout" links
+[v] add MembersController.Login(), and create "Login"(create) view page
+
+[v] modify /Views/Shared/_Layout.cshtml, add "Login/Logout" links
+		-/Views/Shared/_Layout.cshtml
+		        <ul class="nav navbar-nav navbar-right">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a href="#">嗨 @(User.Identity.Name)</a></li>
+                        <li><a href="/Members/LogOut">登出</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="/Members/Login">登入</a></li>
+                    }
+                </ul>
+
+[v] Amend /ClothesToU.BackEnd.Site/App_Start/RouteConfig.cs to prevent initializing error
+		-defaults: new { controller = "BackendHome", action = "Index", id = UrlParameter.Optional }
+		-Amend /ClothesToU.BackEnd.Site/HomeController Name to /BackendHomeController
+		-Amend /ClothesToU.BackEnd.Site/Views/BackendHome
+======================
+
+## [Working On] Forgot Password

@@ -167,12 +167,16 @@
     <Compile Include="Models\Infrastractures\HashUtility.cs" />
     <Compile Include="Models\Repositories\LoginRepository.cs" />
     <Compile Include="Models\Repositories\RegisterRepository.cs" />
+    <Compile Include="Models\UseCases\EditProfile\EditProfileCommand.cs" />
+    <Compile Include="Models\UseCases\EditProfile\EditProfileRequest.cs" />
+    <Compile Include="Models\UseCases\EditProfile\EditProfileResponse.cs" />
     <Compile Include="Models\UseCases\Login\LoginCommand.cs" />
     <Compile Include="Models\UseCases\Login\LoginRequest.cs" />
     <Compile Include="Models\UseCases\Login\LoginResponse.cs" />
     <Compile Include="Models\UseCases\Register\RegisterCommand.cs" />
     <Compile Include="Models\UseCases\Register\RegisterRequest.cs" />
     <Compile Include="Models\UseCases\Register\RegisterResponse.cs" />
+    <Compile Include="Models\ViewModels\EditProfileVM.cs" />
     <Compile Include="Models\ViewModels\LoginVM.cs" />
     <Compile Include="Models\ViewModels\RegisterVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

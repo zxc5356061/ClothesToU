@@ -10,8 +10,8 @@
 *** MemberService ***
 ## [v] New Member Register
 ## [v] Member Login
-## [working on] Member Center page
-## [] Update Member data
+## [v] Member Center page
+## [working on] Update Member data
 ## [] Forgot Password
 ## [] MemberData CRUD(backend)
 ======================
@@ -149,9 +149,35 @@
 		<li>@Html.ActionLink("會員中心", "Index", "Members")</li>
 
 ======================
+## [working on] Update Member data(/Members/EditProfile)
+[v] add /Models/ViewModels/EditProfileVM.cs
+		-public string Password { get; set; }
+		-public string ConfirmPassword { get; set; }
+		-public string Name { get; set; }
+		-public string Mobile { get; set; }
+		-public string Address { get; set; }
 
-*** 修改個人基本資料(/Members/EditProfile)
-[working on] add /ViewModels/EditProfileVM.cs
+[v] add /Models/UseCases/LoginRequest class
+		-public string Password { get; set; }
+		-public string Name { get; set; }
+		-public string Mobile { get; set; }
+		-public string Address { get; set; }
+
+[] add UpdateProfileRequest class, add MemberService.UpdateProfile(UpdateProfileRequest)
+	UpdateProfileRequest class 加入 string "CurrentUserAccount property
+
+
+
+[] add MembersController.EditProfile() , add "EditProfile" view page
+
+[] modify IMemberRepository=> add IsExists(account,excludeId), Update(MemberEntity)
+[] 如果更新個資成功,且有改帳唬, 就自動轉向到logout page
+[] 變更密碼(/Members/EditPassword/)
+	add EditPasswordVM, ChangePasswordRequest
+	add IMemberRepository.UpdatePassword()
+[] /Members/Index/, EditProfile,EditPassword, Logout 要加[Authorize]
+
+
 [] add MembersController.EditProfile() , add "EditProfile" view page
 [] add UpdateProfileRequest class, add MemberService.UpdateProfile(UpdateProfileRequest)
 	UpdateProfileRequest class 加入 string "CurrentUserAccount property

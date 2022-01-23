@@ -10,9 +10,10 @@
 *** MemberService ***
 ## [v] New Member Register
 ## [v] Member Login
-## [Working On] Forgot Password
+## [working on] Member Center page
 ## [] Update Member data
-## [] MemberData CRUD
+## [] Forgot Password
+## [] MemberData CRUD(backend)
 ======================
 
 ## New Member Register
@@ -141,4 +142,22 @@
 		-Amend /ClothesToU.BackEnd.Site/Views/BackendHome
 ======================
 
-## [Working On] Forgot Password
+## [v] Member Center page
+[v] 會員中心頁(/Members/Index)
+		-add MembersController.Index(), Index view page
+[v] modify /Views/Shared/_Layout.cshtml
+		<li>@Html.ActionLink("會員中心", "Index", "Members")</li>
+
+======================
+
+*** 修改個人基本資料(/Members/EditProfile)
+[working on] add /ViewModels/EditProfileVM.cs
+[] add MembersController.EditProfile() , add "EditProfile" view page
+[] add UpdateProfileRequest class, add MemberService.UpdateProfile(UpdateProfileRequest)
+	UpdateProfileRequest class 加入 string "CurrentUserAccount property
+[] modify IMemberRepository=> add IsExists(account,excludeId), Update(MemberEntity)
+[] 如果更新個資成功,且有改帳唬, 就自動轉向到logout page
+[] 變更密碼(/Members/EditPassword/)
+	add EditPasswordVM, ChangePasswordRequest
+	add IMemberRepository.UpdatePassword()
+[] /Members/Index/, EditProfile,EditPassword, Logout 要加[Authorize]

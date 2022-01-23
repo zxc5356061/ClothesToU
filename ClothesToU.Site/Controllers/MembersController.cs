@@ -72,5 +72,11 @@ namespace ClothesToU.Site.Controllers
             return this.View();
         }
 
+        [Authorize]
+        public ActionResult Index()
+        {
+            return View();
+        }
+
     }
 }

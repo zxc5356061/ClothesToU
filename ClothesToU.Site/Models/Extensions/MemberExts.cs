@@ -7,17 +7,19 @@ using System.Web;
 
 namespace ClothesToU.Site.Models.Extensions
 {
-    public static partial class RegisterEntityExt
+    public static partial class MemberExts
     {
-        public static Member ToEFMember(this MemberEntity source)
+        public static MemberEntity ToMemberEntity(this Member source)
         {
-            return new Member
+            return new MemberEntity
             {
+                Id = source.Id,
                 Account = source.Account,
-                Password = source.Password,
                 Name = source.Name,
                 Mobile = source.Mobile,
                 Address = source.Address,
+                ConfirmCode = source.ConfirmCode,
+                Password = source.Password//EncryptedPassword 
             };
         }
     }

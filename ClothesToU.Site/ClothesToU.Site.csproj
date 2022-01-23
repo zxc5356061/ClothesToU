@@ -163,10 +163,12 @@
     <Compile Include="Models\Entities\MemberEntity.cs" />
     <Compile Include="Models\Entities\SaltEntity.cs" />
     <Compile Include="Models\Extensions\LoginVMExt.cs" />
-    <Compile Include="Models\Extensions\RegisterEntityExt.cs" />
+    <Compile Include="Models\Extensions\MemberEntityExt.cs" />
+    <Compile Include="Models\Extensions\MemberExts.cs" />
     <Compile Include="Models\Extensions\RegisterRequestExt.cs" />
     <Compile Include="Models\Extensions\RegisterVMExt.cs" />
     <Compile Include="Models\Infrastractures\HashUtility.cs" />
+    <Compile Include="Models\Repositories\EditMemberDataRepository.cs" />
     <Compile Include="Models\Repositories\LoginRepository.cs" />
     <Compile Include="Models\Repositories\RegisterRepository.cs" />
     <Compile Include="Models\UseCases\EditProfile\EditProfileCommand.cs" />
@@ -224,6 +226,7 @@
     <Content Include="Views\Members\RegisterConfirm.cshtml" />
     <Content Include="Views\Members\Login.cshtml" />
     <Content Include="Views\Members\Index.cshtml" />
+    <Content Include="Views\Members\EditProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

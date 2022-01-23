@@ -184,6 +184,14 @@
 
 IEditMemberDataRepository
 
+[] 載入個人基本資料
+public class MembersController : Controller
+add IEditMemberDataRepository editMemberDataRepository = new EditMemberDataRepository();
+add public ActionResult EditProdile()
+add public static EditProfileVM ToEditProfileVM(this MemberEntity source)
+add MemberExts
+public MemberEntity Load(string account)
+
 [] add MembersController.EditProfile() , add "EditProfile" view page
 [] add UpdateProfileRequest class, add MemberService.UpdateProfile(UpdateProfileRequest)
 	UpdateProfileRequest class 加入 string "CurrentUserAccount property

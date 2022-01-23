@@ -10,6 +10,6 @@ namespace ClothesToU.Site.Models.Core.Interfaces
     public interface IRegisterRepository
     {
         bool IsExist(string account);
-        void Create(RegisterEntity entity);
+        void Create(MemberEntity entity);
     }
 }

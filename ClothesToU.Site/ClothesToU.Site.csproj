@@ -157,8 +157,9 @@
     <Compile Include="Models\EFModels\Order.cs" />
     <Compile Include="Models\EFModels\OrderItem.cs" />
     <Compile Include="Models\EFModels\Product.cs" />
+    <Compile Include="Models\Entities\EditProfileEntity.cs" />
     <Compile Include="Models\Entities\LoginEntity.cs" />
-    <Compile Include="Models\Entities\RegisterEntity.cs" />
+    <Compile Include="Models\Entities\MemberEntity.cs" />
     <Compile Include="Models\Entities\SaltEntity.cs" />
     <Compile Include="Models\Extensions\LoginVMExt.cs" />
     <Compile Include="Models\Extensions\RegisterEntityExt.cs" />

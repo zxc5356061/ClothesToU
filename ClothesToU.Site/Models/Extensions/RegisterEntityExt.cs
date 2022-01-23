@@ -9,7 +9,7 @@ namespace ClothesToU.Site.Models.Extensions
 {
     public static partial class RegisterEntityExt
     {
-        public static Member ToEFMember(this RegisterEntity source)
+        public static Member ToEFMember(this MemberEntity source)
         {
             return new Member
             {

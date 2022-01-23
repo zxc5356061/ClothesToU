@@ -48,7 +48,7 @@ namespace ClothesToU.Site.Models.Core
 			//	 建立 ConfirmCode
 			//	 叫用 IRepo 進行建檔工作
 			string confirmCode = Guid.NewGuid().ToString("N");
-			RegisterEntity registerEntity = new RegisterEntity
+			MemberEntity registerEntity = new MemberEntity
 			{
 				Account = request.Account,
 				Password = request.Password,

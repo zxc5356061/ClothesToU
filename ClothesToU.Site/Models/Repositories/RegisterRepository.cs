@@ -19,7 +19,7 @@ namespace ClothesToU.Site.Models.Repositories
             return result;
         }
 
-        public void Create(RegisterEntity entity)
+        public void Create(MemberEntity entity)
         {
             Member member = new Member
             {

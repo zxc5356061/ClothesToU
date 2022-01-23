@@ -9,9 +9,9 @@ namespace ClothesToU.Site.Models.Extensions
 {
     public static partial class RegisterRequestExt
     {
-        public static RegisterEntity ToRegisterEntity(this RegisterRequest source)
+        public static MemberEntity ToRegisterEntity(this RegisterRequest source)
         {
-            return new RegisterEntity
+            return new MemberEntity
             {
                 Account = source.Account,
                 Password = source.Password,

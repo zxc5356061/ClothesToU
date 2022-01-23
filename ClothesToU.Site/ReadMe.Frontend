@@ -12,6 +12,7 @@
 ## [v] Member Login
 ## [v] Member Center page
 ## [working on] Update Member data
+## [] Update Current Password
 ## [] Forgot Password
 ## [] MemberData CRUD(backend)
 ======================
@@ -151,17 +152,21 @@
 ======================
 ## [working on] Update Member data(/Members/EditProfile)
 [v] add /Models/ViewModels/EditProfileVM.cs
-		-public string Password { get; set; }
-		-public string ConfirmPassword { get; set; }
 		-public string Name { get; set; }
 		-public string Mobile { get; set; }
 		-public string Address { get; set; }
 
-[v] add /Models/UseCases/LoginRequest class
-		-public string Password { get; set; }
+[v] add /Models/UseCases/EditProfileRequest class
 		-public string Name { get; set; }
 		-public string Mobile { get; set; }
 		-public string Address { get; set; }
+
+[] add /Models/UseCases/EditProfileResponse class
+
+[v] add /Models/Entities/EditProfileEntity class
+        -public string Name { get; set; }
+        -public string Mobile { get; set; }
+        -public string Address { get; set; }
 
 [] add UpdateProfileRequest class, add MemberService.UpdateProfile(UpdateProfileRequest)
 	UpdateProfileRequest class 加入 string "CurrentUserAccount property
@@ -187,3 +192,6 @@
 	add EditPasswordVM, ChangePasswordRequest
 	add IMemberRepository.UpdatePassword()
 [] /Members/Index/, EditProfile,EditPassword, Logout 要加[Authorize]
+
+======================
+## [] Update Current Password

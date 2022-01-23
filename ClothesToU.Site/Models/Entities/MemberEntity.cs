@@ -6,7 +6,7 @@ using System.Web;
 
 namespace ClothesToU.Site.Models.Entities
 {
-    public class RegisterEntity:SaltEntity
+    public class MemberEntity:SaltEntity
     {
         public string Account { get; set; }
 

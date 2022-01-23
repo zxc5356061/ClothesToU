@@ -182,6 +182,7 @@
 	add IMemberRepository.UpdatePassword()
 [] /Members/Index/, EditProfile,EditPassword, Logout 要加[Authorize]
 
+IEditMemberDataRepository
 
 [] add MembersController.EditProfile() , add "EditProfile" view page
 [] add UpdateProfileRequest class, add MemberService.UpdateProfile(UpdateProfileRequest)

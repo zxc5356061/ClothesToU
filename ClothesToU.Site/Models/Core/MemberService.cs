@@ -1,5 +1,6 @@
 ﻿using ClothesToU.Site.Models.Core.Interfaces;
 using ClothesToU.Site.Models.Entities;
+using ClothesToU.Site.Models.Extensions;
 using ClothesToU.Site.Models.Infrastractures;
 using ClothesToU.Site.Models.Repositories;
 using ClothesToU.Site.Models.UseCases;
@@ -117,8 +118,16 @@ namespace ClothesToU.Site.Models.Core
 		public void EditProfile(EditProfileRequest request)
         {
 			// 取得在db裡的原始記錄
-			MemberEntity memberEntity = editMemberDataRepository.Load(request.Account);
-
+			MemberEntity entity = editMemberDataRepository.Load(request.Account);
+			if (entity == null)
+            {
+				throw new Exception("找不到要修改的會員記錄");
+            }
+            else
+            {
+				entity = request.ToMemberEntity();
+				editMemberDataRepository.Update(entity);
+			}
 		}
 	}
 }

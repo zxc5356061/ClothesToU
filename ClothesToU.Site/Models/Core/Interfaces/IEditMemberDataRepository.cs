@@ -11,10 +11,10 @@ namespace ClothesToU.Site.Models.Core.Interfaces
     {
 		//for updating general member data except password
 		MemberEntity Load(string account);
-		void Update(EditProfileEntity entity);
+		void Update(MemberEntity entity);
 
 		//for updating password
-		MemberEntity Load(int memberId);
+		//MemberEntity Load(int memberId);
 		void UpdatePassword(int memberId, string encryptedPassword);
 	}
 }

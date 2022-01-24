@@ -221,7 +221,6 @@
 					</dd>
 				</dl>
 
-
 [working on] implement EditMemberDataRepository class
 [v] implement EditMemberDataRepository Update function
 		-public void Update(EditProfileEntity entity)
@@ -232,12 +231,23 @@
             -member.Mobile = entity.Mobile;
             -member.Address = entity.Address;
 
-[working on] add new function in public class MembersController
-		-public ActionResult EditProfile(EditProfileVM model)[HttpPost][Authorize]
+[v] add /Models/Extensions EditProfileRequestExt
+		-public static MemberEntity ToMemberEntity(this EditProfileRequest source)
+			-Account = source.Account,
+			-Name = source.Name,
+			-IsConfirmed = source.IsConfirmed,
+			-ConfirmCode = source.ConfirmCode,
+			-Mobile = source.Mobile,
+			-Address = source.Address,
 
 [working on] service: public void UpdateProfile(UpdateProfileRequest request)
 
 [working on] add /Models/UseCases/EditProfileCommand class
+
+[working on] add new function in public class MembersController
+		-public ActionResult EditProfile(EditProfileVM model)[HttpPost][Authorize]
+
+
 
 [] add UpdateProfileRequest class, add MemberService.UpdateProfile(UpdateProfileRequest)
 	UpdateProfileRequest class 加入 string "CurrentUserAccount property

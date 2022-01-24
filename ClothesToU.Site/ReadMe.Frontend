@@ -148,8 +148,8 @@
 		-add MembersController.Index(), Index view page
 [v] modify /Views/Shared/_Layout.cshtml
 		<li>@Html.ActionLink("會員中心", "Index", "Members")</li>
-
 ======================
+
 ## [working on] Update Member data(/Members/EditProfile)
 [v] add /Models/ViewModels/EditProfileVM.cs
 		-public string Name { get; set; }
@@ -201,8 +201,11 @@
 [] add UpdateProfileRequest class, add MemberService.UpdateProfile(UpdateProfileRequest)
 	UpdateProfileRequest class 加入 string "CurrentUserAccount property
 
-[working on] add /Models/UseCases/EditProfileCommand class
 
+
+[working on] service: public void UpdateProfile(UpdateProfileRequest request)
+
+[working on] add /Models/UseCases/EditProfileCommand class
 
 
 [] add MembersController.EditProfile() , add "EditProfile" view page

@@ -3,6 +3,7 @@ using ClothesToU.Site.Models.Entities;
 using ClothesToU.Site.Models.Infrastractures;
 using ClothesToU.Site.Models.Repositories;
 using ClothesToU.Site.Models.UseCases;
+using ClothesToU.Site.Models.UseCases.EditProfile;
 using ClothesToU.Site.Models.UseCases.Login;
 using System;
 using System.Collections.Generic;
@@ -106,5 +107,11 @@ namespace ClothesToU.Site.Models.Core
 			string url = FormsAuthentication.GetRedirectUrl(account, true); //第2個參數沒用
 			return url;
 		}//Member Login_end
+
+		public void EditProfile(EditProfileRequest request)
+        {
+			// 取得在db裡的原始記錄
+
+		}
 	}
 }

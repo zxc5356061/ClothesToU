@@ -178,7 +178,7 @@
 		-public string Mobile { get; set; }
 		-public string Address { get; set; }
 
-[] add /Models/Extensions/MemberEntityExt
+[v] add /Models/Extensions/MemberEntityExt
 		-public static EditProfileVM ToEditProfileVM(this MemberEntity source)
 			-Id = source.Id,
 			-Account = source.Account,
@@ -225,6 +225,12 @@
 [working on] implement EditMemberDataRepository class
 [v] implement EditMemberDataRepository Update function
 		-public void Update(EditProfileEntity entity)
+		    -Member member = db.Members.Find(entity.Id);
+            -member.Name = entity.Name;
+            -member.IsConfirmed = entity.IsConfirmed;
+            -member.ConfirmCode = entity.ConfirmCode;
+            -member.Mobile = entity.Mobile;
+            -member.Address = entity.Address;
 
 [working on] add new function in public class MembersController
 		-public ActionResult EditProfile(EditProfileVM model)[HttpPost][Authorize]

@@ -21,6 +21,7 @@ namespace ClothesToU.Site.Models.Repositories
         public void Update(EditProfileEntity entity)
         {
             //Member account is not allowed to be amended.
+            //Member password amending is implemented in "UpdatePassword" function.
             Member member = db.Members.Find(entity.Id);
             member.Name = entity.Name;
             member.IsConfirmed = entity.IsConfirmed;

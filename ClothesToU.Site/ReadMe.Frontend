@@ -184,7 +184,7 @@
 
 IEditMemberDataRepository
 
-[] 載入個人基本資料
+[working on] 載入個人基本資料
 public class MembersController : Controller
 add IEditMemberDataRepository editMemberDataRepository = new EditMemberDataRepository();
 add public ActionResult EditProdile()

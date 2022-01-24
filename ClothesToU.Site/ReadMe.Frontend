@@ -161,7 +161,7 @@
 		-public string Mobile { get; set; }
 		-public string Address { get; set; }
 
-[] add /Models/UseCases/EditProfileResponse class
+[working on] add /Models/UseCases/EditProfileResponse class
 
 [v] add /Models/Entities/EditProfileEntity class
         -public string Name { get; set; }
@@ -175,8 +175,6 @@
 		//for updating password
 		-MemberEntity Load(int memberId);
 		-void UpdatePassword(int memberId, string encryptedPassword);
-
-[working on] implement EditMemberDataRepository class
 
 [v] Load current member data before editing
 		-public class MembersController : Controller
@@ -196,9 +194,14 @@
 				</dl>
 
 
+[working on] implement EditMemberDataRepository class
+[working on] add new function in public class MembersController
+		-public ActionResult EditProfile(EditProfileVM model)[HttpPost][Authorize]
 
 [] add UpdateProfileRequest class, add MemberService.UpdateProfile(UpdateProfileRequest)
 	UpdateProfileRequest class 加入 string "CurrentUserAccount property
+
+[working on] add /Models/UseCases/EditProfileCommand class
 
 
 

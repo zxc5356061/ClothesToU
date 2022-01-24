@@ -93,5 +93,12 @@ namespace ClothesToU.Site.Controllers
             return View(model);
         }
 
+        //[Authorize]
+        //[HttpPost]
+        //public ActionResult EditProfile(EditProfileVM model)
+        //{
+        //    return new NotImplementedException();
+        //}
+
     }
 }

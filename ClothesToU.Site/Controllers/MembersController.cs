@@ -101,10 +101,10 @@ namespace ClothesToU.Site.Controllers
             string currentUserAccount = User.Identity.Name;
             model.Account = currentUserAccount;
 
-            //if (ModelState.IsValid == false)
-            //{
-            //    return View(model);
-            //}
+            if (ModelState.IsValid == false)
+            {
+                return RedirectToAction("LogOut");
+            }
 
             try
             {

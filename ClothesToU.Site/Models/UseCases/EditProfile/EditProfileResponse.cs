@@ -9,7 +9,6 @@ namespace ClothesToU.Site.Models.UseCases.EditProfile
     public class EditProfileResponse
     {
         public bool IsSuccess { get; set; }
-        public string ErrorMessage { get; set; }
-        public EditProfileEntity Data { get; set; }
+        public MemberEntity Data { get; set; }
     }
 }

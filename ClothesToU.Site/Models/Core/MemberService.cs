@@ -1,14 +1,17 @@
 ﻿using ClothesToU.Site.Models.Core.Interfaces;
 using ClothesToU.Site.Models.Entities;
+using ClothesToU.Site.Models.Extensions;
 using ClothesToU.Site.Models.Infrastractures;
 using ClothesToU.Site.Models.Repositories;
 using ClothesToU.Site.Models.UseCases;
+using ClothesToU.Site.Models.UseCases.EditProfile;
 using ClothesToU.Site.Models.UseCases.Login;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
+using System.Web.Mvc;
 
 namespace ClothesToU.Site.Models.Core
 {
@@ -16,6 +19,7 @@ namespace ClothesToU.Site.Models.Core
 	{
 		private readonly IRegisterRepository registerRepository;
 		private readonly ILoginRepository loginRepository;
+		private readonly IEditMemberDataRepository editMemberDataRepository;
 		public MemberService()
 		{
 			this.registerRepository = new RegisterRepository();
@@ -28,6 +32,11 @@ namespace ClothesToU.Site.Models.Core
 		public MemberService(ILoginRepository _loginRepository)
 		{
 			this.loginRepository = _loginRepository;
+		}
+		public MemberService(IEditMemberDataRepository _editMemberDataRepository)
+        {
+			this.editMemberDataRepository = _editMemberDataRepository;
+
 		}
 
 
@@ -106,5 +115,22 @@ namespace ClothesToU.Site.Models.Core
 			string url = FormsAuthentication.GetRedirectUrl(account, true); //第2個參數沒用
 			return url;
 		}//Member Login_end
+
+		public MemberEntity EditProfile(EditProfileRequest request)
+        {
+			
+			// 取得在db裡的原始記錄
+			MemberEntity entity = editMemberDataRepository.Load(request.Account);
+			if (entity == null)
+            {
+				return null;
+            }
+            else
+            {
+				entity = request.ToMemberEntity();
+				editMemberDataRepository.Update(entity);
+				return entity;
+			}
+		}
 	}
 }

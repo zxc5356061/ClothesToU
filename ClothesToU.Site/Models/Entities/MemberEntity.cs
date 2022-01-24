@@ -20,6 +20,7 @@ namespace ClothesToU.Site.Models.Entities
         public string Address { get; set; }
 
         public string ConfirmCode { get; set; }
+        public bool IsConfirmed { get; set; }
 
         public string EncryptedPassword
         {
@@ -30,6 +31,7 @@ namespace ClothesToU.Site.Models.Entities
                 return result;
             }
         }
+               
 
     }
 }

@@ -11,6 +11,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using ClothesToU.Site.Models.UseCases.EditProfile;
 
 namespace ClothesToU.Site.Controllers
 {
@@ -91,6 +92,32 @@ namespace ClothesToU.Site.Controllers
             EditProfileVM model = entity.ToEditProfileVM();
 
             return View(model);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult EditProfile(EditProfileVM model)
+        {
+            string currentUserAccount = User.Identity.Name;
+            model.Account = currentUserAccount;
+
+            //if (ModelState.IsValid == false)
+            //{
+            //    return View(model);
+            //}
+
+            try
+            {
+                EditProfileCommand command = new EditProfileCommand();
+                model = command.Execute(model).ToEditProfileVM();
+                return View(model);
+            }catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+            }
+
+            return View("EditProfileConfirm");
+
         }
 
     }

@@ -165,6 +165,7 @@
     <Compile Include="Models\Entities\MemberEntity.cs" />
     <Compile Include="Models\Entities\SaltEntity.cs" />
     <Compile Include="Models\Extensions\EditProfileRequestExt.cs" />
+    <Compile Include="Models\Extensions\EditProfileResponseExt.cs" />
     <Compile Include="Models\Extensions\EditProfileVMExt.cs" />
     <Compile Include="Models\Extensions\LoginVMExt.cs" />
     <Compile Include="Models\Extensions\MemberEntityExt.cs" />

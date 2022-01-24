@@ -1,4 +1,5 @@
 ﻿using ClothesToU.Site.Models.Core;
+using ClothesToU.Site.Models.Entities;
 using ClothesToU.Site.Models.Extensions;
 using ClothesToU.Site.Models.ViewModels;
 using System;
@@ -17,21 +18,17 @@ namespace ClothesToU.Site.Models.UseCases.EditProfile
             EditProfileRequest request = editProfileVM.ToEditProfileRequest();
 
             //Response
-            if(service.EditProfile(request) == null)
+            MemberEntity result = service.EditProfile(request);
+            if (result == null)
             {
-                return new EditProfileResponse
-                {
-                    IsSuccess = false,
-                };
+                throw new Exception("找不到要修改的會員記錄");
             }
-            else
+
+            return new EditProfileResponse
             {
-                return new EditProfileResponse
-                {
-                    IsSuccess = true,
-                    Data = service.EditProfile(request)
-                };
-            }
+                IsSuccess = true,
+                Data = service.EditProfile(request)
+            };
         }
     }
 }

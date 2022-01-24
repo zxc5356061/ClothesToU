@@ -8,6 +8,11 @@ namespace ClothesToU.Site.Models.ViewModels
 {
     public class EditProfileVM
     {
+        [Display(Name = "帳號")]
+        [Required]
+        [StringLength(20)]
+        public string Account { get; set; }
+
 
         [Display(Name = "修改姓名")]
         [Required]

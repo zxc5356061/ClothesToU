@@ -26,6 +26,7 @@ namespace ClothesToU.Site.Models.Extensions
         {
             return new EditProfileVM
             {
+                Account = source.Account,
                 Name = source.Name,
                 Mobile = source.Mobile,
                 Address = source.Address

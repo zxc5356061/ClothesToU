@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace ClothesToU.Site.Models.Core.Interfaces
 {
-    public interface IRegisterRepository
+    public interface ILoginRepository
     {
-        bool IsExist(string account);
-        void Create(MemberEntity entity);
+        LoginEntity Load(string account);
     }
 }

@@ -10,6 +10,6 @@ namespace ClothesToU.Site.Models.UseCases
     {
         public bool IsSuccess { get; set; }
         public string ErrorMessage { get; set; }
-        public RegisterEntity Data { get; set; }
+        public MemberEntity Data { get; set; }
     }
 }

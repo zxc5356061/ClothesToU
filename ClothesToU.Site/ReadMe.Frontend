@@ -1,9 +1,20 @@
-﻿*** MemberService ***
+﻿*** How to Co-work on git ***
+1. Find uuhuang918/ClothesToU
+2. Click "Fork"
+3. Copy the forked URL "https://github.com/zxc5356061/ClothesToU" and clone
+4. Write my code.
+5. Create a new branch named "dev" based on "Origin/Master"
+6. Commit and pull
+7. Create Pull Request
+
+*** MemberService ***
 ## [v] New Member Register
-## [working] Member Login
+## [v] Member Login
+## [v] Member Center page
+## [working on] Update Member data
+## [] Update Current Password
 ## [] Forgot Password
-## [] Update Member data
-## [] MemberData CRUD
+## [] MemberData CRUD(backend)
 ======================
 
 ## New Member Register
@@ -91,29 +102,105 @@
 
 [v] add /Models/UseCases/LoginResponse class
 		-public bool IsSuccess { get; set; }
-		-public string ErrorMessage { get; set; }
-		-public LoginEntity Data { get; set; }
 
-[v] add /LoginEntity: RegisterEntity
+[v] add /LoginEntity(從資料庫撈Member的資料，以便與使用者輸入的LoginRequest比對是否一致)
+        -public string Account { get; set; }
+        -public string EncryptedPassword { get; set; }
 
-[] add /Models/Extensions
-		-LoginEntityExt
-			public static Member ToEFMember(this LoginEntity source)
-		-LoginRequestExt
-			public static LoginEntity ToLoginEntity(this LoginRequest source)
+[v] add /Models/Extensions
 		-LoginVMExt
 			public static LoginRequest ToLoginRequest(this LoginVM source)
 
-[] add ILoginRepository & LoginRepository
+[v] add /MemberService
+		-public bool IsValid(string account, string password)
+		-public string ProcessLogin(string account, bool rememberMe, out HttpCookie cookie)
+
+[v] add /LoginCommand
+		-public LoginResponse Execute(LoginVM loginVM)
+
+[v] add ILoginRepository & LoginRepository
 		-LoginEntity Load(string account);
 
-[] add /Models/UseCases/LoginCommand class( with Execute method)
-		-public LoginResponse Execute(LoginVM LoginVM)
+[v] add MembersController.Login(), and create "Login"(create) view page
 
-[] add MembersController.Login(), and create "Login" view page
-[] add /Models/DTOs/LoginResponse.cs
-[] add MemberRepository.Login(account)
-[] add MemberService.Login(account, password)
-[] add MemberController.Login() httppost action
-		使用表單認證,寫入 cookie
-[] modify _Layout page, add "Login/Logout" links
+[v] modify /Views/Shared/_Layout.cshtml, add "Login/Logout" links
+		-/Views/Shared/_Layout.cshtml
+		        <ul class="nav navbar-nav navbar-right">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a href="#">嗨 @(User.Identity.Name)</a></li>
+                        <li><a href="/Members/LogOut">登出</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="/Members/Login">登入</a></li>
+                    }
+                </ul>
+
+[v] Amend /ClothesToU.BackEnd.Site/App_Start/RouteConfig.cs to prevent initializing error
+		-defaults: new { controller = "BackendHome", action = "Index", id = UrlParameter.Optional }
+		-Amend /ClothesToU.BackEnd.Site/HomeController Name to /BackendHomeController
+		-Amend /ClothesToU.BackEnd.Site/Views/BackendHome
+======================
+
+## [v] Member Center page
+[v] 會員中心頁(/Members/Index)
+		-add MembersController.Index(), Index view page
+[v] modify /Views/Shared/_Layout.cshtml
+		<li>@Html.ActionLink("會員中心", "Index", "Members")</li>
+
+======================
+## [working on] Update Member data(/Members/EditProfile)
+[v] add /Models/ViewModels/EditProfileVM.cs
+		-public string Name { get; set; }
+		-public string Mobile { get; set; }
+		-public string Address { get; set; }
+
+[v] add /Models/UseCases/EditProfileRequest class
+		-public string Name { get; set; }
+		-public string Mobile { get; set; }
+		-public string Address { get; set; }
+
+[] add /Models/UseCases/EditProfileResponse class
+
+[v] add /Models/Entities/EditProfileEntity class
+        -public string Name { get; set; }
+        -public string Mobile { get; set; }
+        -public string Address { get; set; }
+
+[] add UpdateProfileRequest class, add MemberService.UpdateProfile(UpdateProfileRequest)
+	UpdateProfileRequest class 加入 string "CurrentUserAccount property
+
+
+
+[] add MembersController.EditProfile() , add "EditProfile" view page
+
+[] modify IMemberRepository=> add IsExists(account,excludeId), Update(MemberEntity)
+[] 如果更新個資成功,且有改帳唬, 就自動轉向到logout page
+[] 變更密碼(/Members/EditPassword/)
+	add EditPasswordVM, ChangePasswordRequest
+	add IMemberRepository.UpdatePassword()
+[] /Members/Index/, EditProfile,EditPassword, Logout 要加[Authorize]
+
+IEditMemberDataRepository
+
+[] 載入個人基本資料
+public class MembersController : Controller
+add IEditMemberDataRepository editMemberDataRepository = new EditMemberDataRepository();
+add public ActionResult EditProdile()
+add public static EditProfileVM ToEditProfileVM(this MemberEntity source)
+add MemberExts
+public MemberEntity Load(string account)
+
+[] add MembersController.EditProfile() , add "EditProfile" view page
+[] add UpdateProfileRequest class, add MemberService.UpdateProfile(UpdateProfileRequest)
+	UpdateProfileRequest class 加入 string "CurrentUserAccount property
+[] modify IMemberRepository=> add IsExists(account,excludeId), Update(MemberEntity)
+[] 如果更新個資成功,且有改帳唬, 就自動轉向到logout page
+[] 變更密碼(/Members/EditPassword/)
+	add EditPasswordVM, ChangePasswordRequest
+	add IMemberRepository.UpdatePassword()
+[] /Members/Index/, EditProfile,EditPassword, Logout 要加[Authorize]
+
+======================
+## [] Update Current Password

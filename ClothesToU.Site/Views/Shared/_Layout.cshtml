@@ -22,9 +22,24 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("關於", "About", "Home")</li>
+                    <li>@Html.ActionLink("關於(要登入)", "About", "Home")</li>
                     <li>@Html.ActionLink("連絡人", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("會員中心", "Index", "Members")</li>
                 </ul>
+
+                @*manually added logout button here*@
+                <ul class="nav navbar-nav navbar-right">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a href="#">嗨 @(User.Identity.Name)</a></li>
+                        <li><a href="/Members/LogOut">登出</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="/Members/Login">登入</a></li>
+                    }
+                </ul>
+
             </div>
         </div>
     </div>

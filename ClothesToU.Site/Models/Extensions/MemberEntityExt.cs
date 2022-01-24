@@ -26,10 +26,13 @@ namespace ClothesToU.Site.Models.Extensions
         {
             return new EditProfileVM
             {
+                Id = source.Id,
                 Account = source.Account,
                 Name = source.Name,
                 Mobile = source.Mobile,
-                Address = source.Address
+                Address = source.Address,
+                ConfirmCode = source.ConfirmCode,
+                IsConfirmed = source.IsConfirmed,
             };
         }
     }

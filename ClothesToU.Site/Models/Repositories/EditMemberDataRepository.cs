@@ -18,16 +18,23 @@ namespace ClothesToU.Site.Models.Repositories
                              .ToMemberEntity();
         }
 
+        public void Update(EditProfileEntity entity)
+        {
+            //Member account is not allowed to be amended.
+            Member member = db.Members.Find(entity.Id);
+            member.Name = entity.Name;
+            member.IsConfirmed = entity.IsConfirmed;
+            member.ConfirmCode = entity.ConfirmCode;
+            member.Mobile = entity.Mobile;
+            member.Address = entity.Address;
+            db.SaveChanges();
+        }
+
+
         public MemberEntity Load(int memberId)
         {
             throw new NotImplementedException();
         }
-
-        public void Update(EditProfileEntity entity)
-        {
-            throw new NotImplementedException();
-        }
-
         public void UpdatePassword(int memberId, string encryptedPassword)
         {
             throw new NotImplementedException();

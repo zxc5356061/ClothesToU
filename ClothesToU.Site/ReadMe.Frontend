@@ -155,18 +155,27 @@
 		-public string Name { get; set; }
 		-public string Mobile { get; set; }
 		-public string Address { get; set; }
+		-public int Id { get; set; }
+		-public string Account { get; set; }
 
 [v] add /Models/UseCases/EditProfileRequest class
 		-public string Name { get; set; }
 		-public string Mobile { get; set; }
 		-public string Address { get; set; }
-
-[working on] add /Models/UseCases/EditProfileResponse class
+		-public int Id { get; set; }
+		-public string Account { get; set; }
 
 [v] add /Models/Entities/EditProfileEntity class
+        -public int Id { get; set; }
+        -public string Account { get; set; }
         -public string Name { get; set; }
+        -public bool IsConfirmed { get; set; }
+        -public string ConfirmCode { get; set; }
         -public string Mobile { get; set; }
         -public string Address { get; set; }
+
+[] add /Models/Extensions/EditProfileVMExt
+		-public static EditProfileRequest ToEditProfileRequest(this EditProfileVM source)
 
 [v] add /Models/Core/Interfaces/IEditMemberDataRepository class
 		//for updating general member data except password
@@ -195,17 +204,28 @@
 
 
 [working on] implement EditMemberDataRepository class
+[v] implement EditMemberDataRepository Update function
+		-public void Update(EditProfileEntity entity)
+
 [working on] add new function in public class MembersController
 		-public ActionResult EditProfile(EditProfileVM model)[HttpPost][Authorize]
-
-[] add UpdateProfileRequest class, add MemberService.UpdateProfile(UpdateProfileRequest)
-	UpdateProfileRequest class 加入 string "CurrentUserAccount property
-
-
 
 [working on] service: public void UpdateProfile(UpdateProfileRequest request)
 
 [working on] add /Models/UseCases/EditProfileCommand class
+
+[] add UpdateProfileRequest class, add MemberService.UpdateProfile(UpdateProfileRequest)
+	UpdateProfileRequest class 加入 string "CurrentUserAccount property
+
+[working on] add /Models/UseCases/EditProfileResponse class
+
+
+
+
+
+
+
+
 
 
 [] add MembersController.EditProfile() , add "EditProfile" view page
@@ -231,7 +251,7 @@
 
 ======================
 ## [] Update Current Password
-123
+
 
 ======================
 ## [] 

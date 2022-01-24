@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ClothesToU.Site.Models.Core.Interfaces
 {
-    internal interface IEditMemberDataRepository
+    public interface IEditMemberDataRepository
     {
 		//for updating general member data except password
 		MemberEntity Load(string account);

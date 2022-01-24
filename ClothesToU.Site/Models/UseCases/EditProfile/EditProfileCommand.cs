@@ -17,8 +17,9 @@ namespace ClothesToU.Site.Models.UseCases.EditProfile
             //Request
             EditProfileRequest request = editProfileVM.ToEditProfileRequest();
 
-            //Response
             MemberEntity result = service.EditProfile(request);
+
+            //Response
             if (result == null)
             {
                 throw new Exception("找不到要修改的會員記錄");

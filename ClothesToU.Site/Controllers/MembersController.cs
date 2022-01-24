@@ -98,10 +98,13 @@ namespace ClothesToU.Site.Controllers
         [HttpPost]
         public ActionResult EditProfile(EditProfileVM model)
         {
-            if (ModelState.IsValid == false)
-            {
-                return View(model);
-            }
+            string currentUserAccount = User.Identity.Name;
+            model.Account = currentUserAccount;
+
+            //if (ModelState.IsValid == false)
+            //{
+            //    return View(model);
+            //}
 
             try
             {
@@ -113,7 +116,7 @@ namespace ClothesToU.Site.Controllers
                 ModelState.AddModelError(string.Empty, ex.Message);
             }
 
-            return View(model);
+            return View("EditProfileConfirm");
 
         }
 

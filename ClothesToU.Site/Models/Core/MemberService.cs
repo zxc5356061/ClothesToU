@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
+using System.Web.Mvc;
 
 namespace ClothesToU.Site.Models.Core
 {
@@ -117,6 +118,7 @@ namespace ClothesToU.Site.Models.Core
 
 		public MemberEntity EditProfile(EditProfileRequest request)
         {
+			
 			// 取得在db裡的原始記錄
 			MemberEntity entity = editMemberDataRepository.Load(request.Account);
 			if (entity == null)

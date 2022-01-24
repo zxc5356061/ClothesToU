@@ -8,7 +8,7 @@ namespace ClothesToU.Site.Models.EFModels
 	public partial class AppDbContext : DbContext
 	{
 		public AppDbContext()
-			: base("name=AppDbContext")
+			: base("name=AppDbContext2")
 		{
 		}
 

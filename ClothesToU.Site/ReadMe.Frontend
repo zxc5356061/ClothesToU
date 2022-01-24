@@ -243,6 +243,7 @@
 [working on] service: public void UpdateProfile(UpdateProfileRequest request)
 
 [working on] add /Models/UseCases/EditProfileCommand class
+		-public EditProfileResponse Execute(EditProfileVM editProfileVM)
 
 [working on] add new function in public class MembersController
 		-public ActionResult EditProfile(EditProfileVM model)[HttpPost][Authorize]

@@ -151,31 +151,52 @@
 ======================
 
 ## [working on] Update Member data(/Members/EditProfile)
-[v] add /Models/ViewModels/EditProfileVM.cs
-		-public string Name { get; set; }
-		-public string Mobile { get; set; }
-		-public string Address { get; set; }
-		-public int Id { get; set; }
-		-public string Account { get; set; }
-
-[v] add /Models/UseCases/EditProfileRequest class
-		-public string Name { get; set; }
-		-public string Mobile { get; set; }
-		-public string Address { get; set; }
-		-public int Id { get; set; }
-		-public string Account { get; set; }
-
 [v] add /Models/Entities/EditProfileEntity class
         -public int Id { get; set; }
-        -public string Account { get; set; }
-        -public string Name { get; set; }
-        -public bool IsConfirmed { get; set; }
-        -public string ConfirmCode { get; set; }
-        -public string Mobile { get; set; }
-        -public string Address { get; set; }
+		-public string Account { get; set; }
+		-public string Name { get; set; }
+		-public bool IsConfirmed { get; set; }
+		-public string ConfirmCode { get; set; }
+		-public string Mobile { get; set; }
+		-public string Address { get; set; }
 
-[] add /Models/Extensions/EditProfileVMExt
+[v] add /Models/ViewModels/EditProfileVM.cs
+		-public int Id { get; set; }
+		-public string Account { get; set; }
+		-public string Name { get; set; }
+		-public bool IsConfirmed { get; set; }
+		-public string ConfirmCode { get; set; }
+		-public string Mobile { get; set; }
+		-public string Address { get; set; }
+
+[v] add /Models/UseCases/EditProfileRequest class
+		-public int Id { get; set; }
+		-public string Account { get; set; }
+		-public string Name { get; set; }
+		-public bool IsConfirmed { get; set; }
+		-public string ConfirmCode { get; set; }
+		-public string Mobile { get; set; }
+		-public string Address { get; set; }
+
+[] add /Models/Extensions/MemberEntityExt
+		-public static EditProfileVM ToEditProfileVM(this MemberEntity source)
+			-Id = source.Id,
+			-Account = source.Account,
+			-Name = source.Name,
+			-IsConfirmed = source.IsConfirmed,
+			-ConfirmCode = source.ConfirmCode,
+			-Mobile = source.Mobile,
+			-Address = source.Address
+
+[v] add /Models/Extensions/EditProfileVMExt
 		-public static EditProfileRequest ToEditProfileRequest(this EditProfileVM source)
+            -Id = source.Id,
+            -Account = source.Account,
+            -Name = source.Name,
+            -IsConfirmed = source.IsConfirmed,
+            -ConfirmCode = source.ConfirmCode,
+            -Mobile = source.Mobile,
+            -Address = source.Address,
 
 [v] add /Models/Core/Interfaces/IEditMemberDataRepository class
 		//for updating general member data except password
@@ -188,8 +209,6 @@
 [v] Load current member data before editing
 		-public class MembersController : Controller
 			-add IEditMemberDataRepository editMemberDataRepository = new EditMemberDataRepository();
-			-add MemberEntityExts > public static EditProfileVM ToEditProfileVM(this MemberEntity source)
-			-add MemberExts > public static MemberEntity ToMemberEntity(this Member source)
 			-implement EditMemberRepository > public MemberEntity Load(string account)
 			-public ActionResult EditProfile()[Authorize]
 			-amend /Views/Members/EditProfile.cshtml(set Account field to readonly)

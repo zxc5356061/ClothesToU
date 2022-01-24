@@ -207,4 +207,8 @@ public MemberEntity Load(string account)
 123
 
 ======================
-## [] 
+## [] Add Index2 商品呈現
+[v] add FrontProductsController
+[v] add FrontProdEntity
+[v] add Views/FrontProducts/Index2
+[V] add Files 資料夾

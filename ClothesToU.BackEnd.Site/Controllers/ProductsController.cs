@@ -60,14 +60,22 @@ namespace ClothesToU.BackEnd.Site.Controllers
                 ModelState.AddModelError("FileName", "檔案必填");
                 return View(model);
             }
-            //將檔案儲存，得知實際黨名
+            //將檔案儲存，得知實際檔名
             string path = Server.MapPath("~/Files/");
             string newFileName = SaveFile(file, path);
+         
 
             //將新增名存到model
             model.FileName = newFileName;
             //新增紀錄
             service.Create(model.ToRequest());
+
+            //複製圖片
+            ImageHelper.CopyFile();        
+            
+            
+            
+            
             //redirect to Index頁
             return RedirectToAction("Index");
         }
@@ -130,6 +138,10 @@ namespace ClothesToU.BackEnd.Site.Controllers
                 this.service.Delete(model.Id);
                 string path = Server.MapPath("~/Files/");
                 TryDeleteFile(path, fileName);
+
+
+                ImageHelper.DeleteFile();
+
 
                 return RedirectToAction("Index");
             }

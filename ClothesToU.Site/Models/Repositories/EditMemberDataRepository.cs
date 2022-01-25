@@ -18,10 +18,8 @@ namespace ClothesToU.Site.Models.Repositories
                              .ToMemberEntity();
         }
 
-        public void Update(MemberEntity entity)
+        public void Update(MemberEntityWithoutPassword entity)
         {
-            //Member account is not allowed to be amended.
-            //Member password amending is implemented in "UpdatePassword" function.
             var member = db.Members.Find(entity.Id);
 
             member.Account = entity.Account;

@@ -15,15 +15,14 @@ namespace ClothesToU.Site.Models.Extensions
 
             return new MemberEntity
             {
-
-                //Id = entity.Id,
+                Id = entity.Id,
                 Account = entity.Account,
-                //Password = entity.Password,//EncryptedPassword 
-                Address = entity.Address,
+                Password = entity.Password,//EncryptedPassword
                 Name = entity.Name,
+                IsConfirmed = entity.IsConfirmed,
+                ConfirmCode = entity.ConfirmCode,
                 Mobile = entity.Mobile,
-                //IsConfirmed = entity.IsConfirmed,
-                //ConfirmCode = entity.ConfirmCode
+                Address = entity.Address,
             };
         }
     }

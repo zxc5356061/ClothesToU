@@ -100,6 +100,7 @@ namespace ClothesToU.Site.Controllers
         public ActionResult EditProfile(EditProfileVM model)
         {
             string currentUserAccount = User.Identity.Name;
+            MemberService service = new MemberService();
 
             if (ModelState.IsValid == false)
             {
@@ -107,12 +108,22 @@ namespace ClothesToU.Site.Controllers
             }
 
             EditProfileRequest request = model.ToEditProfileRequest(currentUserAccount);
-
+            // 取得在db裡的原始記錄
+            //MemberEntity entity = editMemberDataRepository.Load(request.CurrentUserAccount);
+            //if (entity == null) throw new Exception("找不到要修改的會員記錄");
+            
             try
             {
-                MemberService service = new MemberService();
+                ////更新紀錄
+                //entity.Name = request.Name;
+                //entity.Address = request.Address;
+                //entity.Mobile = request.Mobile;
+                //entity.Account = request.Account;
+
+                //editMemberDataRepository.Update(entity);
                 service.EditProfile(request);
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 ModelState.AddModelError(string.Empty, ex.Message);
             }

@@ -10,7 +10,7 @@ namespace ClothesToU.Site.Models.Core.Interfaces
     public interface IEditMemberDataRepository
     {
 		MemberEntity Load(string account);
-		void Update(MemberEntity entity);
+		void Update(MemberEntityWithoutPassword entity);
 
 	}
 }

@@ -296,3 +296,16 @@
 
 ======================
 ## [] 
+
+        [Authorize]
+        public ActionResult EditProfileConfirm()
+        {
+            string currentUserAccount = User.Identity.Name;//Get data from IPrincipal
+
+            MemberEntity entity = editMemberDataRepository.Load(currentUserAccount);
+            EditProfileVM model = entity.ToEditProfileVM();
+
+            return View(model);
+        }
+
+		Complete EditProfile(exclude password)

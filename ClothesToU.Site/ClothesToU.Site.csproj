@@ -229,6 +229,7 @@
     <Content Include="Views\Members\Index.cshtml" />
     <Content Include="Views\Members\EditProfile.cshtml" />
     <Content Include="Views\FrontProducts\Index2.cshtml" />
+    <Content Include="Views\Members\EditProfileConfirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

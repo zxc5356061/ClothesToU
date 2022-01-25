@@ -19,7 +19,8 @@ namespace ClothesToU.Site.Controllers
     public class MembersController : Controller
     {
         IEditMemberDataRepository editMemberDataRepository = new EditMemberDataRepository();
-        
+        MemberService service = new MemberService();
+
         // GET: Members
         public ActionResult Register()
         {
@@ -100,7 +101,7 @@ namespace ClothesToU.Site.Controllers
         public ActionResult EditProfile(EditProfileVM model)
         {
             string currentUserAccount = User.Identity.Name;
-            MemberService service = new MemberService();
+            
 
             if (ModelState.IsValid == false)
             {
@@ -108,19 +109,9 @@ namespace ClothesToU.Site.Controllers
             }
 
             EditProfileRequest request = model.ToEditProfileRequest(currentUserAccount);
-            // 取得在db裡的原始記錄
-            //MemberEntity entity = editMemberDataRepository.Load(request.CurrentUserAccount);
-            //if (entity == null) throw new Exception("找不到要修改的會員記錄");
             
             try
             {
-                ////更新紀錄
-                //entity.Name = request.Name;
-                //entity.Address = request.Address;
-                //entity.Mobile = request.Mobile;
-                //entity.Account = request.Account;
-
-                //editMemberDataRepository.Update(entity);
                 service.EditProfile(request);
             }
             catch (Exception ex)
@@ -130,13 +121,24 @@ namespace ClothesToU.Site.Controllers
 
             if (ModelState.IsValid == true)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("EditProfileConfirm");
             }
             else
             {
                 return View(model);
             }
 
+        }
+
+        [Authorize]
+        public ActionResult EditProfileConfirm()
+        {
+            string currentUserAccount = User.Identity.Name;//Get data from IPrincipal
+
+            MemberEntity entity = editMemberDataRepository.Load(currentUserAccount);
+            EditProfileVM model = entity.ToEditProfileVM();
+
+            return View(model);
         }
 
     }

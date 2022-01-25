@@ -98,9 +98,7 @@ namespace ClothesToU.Site.Controllers
         [HttpPost]
         public ActionResult EditProfile(EditProfileVM model)
         {
-            string currentUserAccount = User.Identity.Name;
-            model.Account = currentUserAccount;
-
+            
             if (ModelState.IsValid == false)
             {
                 return RedirectToAction("LogOut");
@@ -108,8 +106,9 @@ namespace ClothesToU.Site.Controllers
 
             try
             {
+                string currentAccount = User.Identity.Name;
                 EditProfileCommand command = new EditProfileCommand();
-                model = command.Execute(model).ToEditProfileVM();
+                model = command.Execute(model, currentAccount).ToEditProfileVM();
                 return View(model);
             }catch (Exception ex)
             {

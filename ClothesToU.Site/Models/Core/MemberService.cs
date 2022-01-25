@@ -120,7 +120,7 @@ namespace ClothesToU.Site.Models.Core
         {
 			
 			// 取得在db裡的原始記錄
-			MemberEntity entity = editMemberDataRepository.Load(request.Account);
+			var entity = editMemberDataRepository.Load(request.Account);
 			if (entity == null)
             {
 				return null;

@@ -9,12 +9,12 @@ namespace ClothesToU.Site.Models.Extensions
 {
     public static partial class EditProfileVMExt
     {
-        public static EditProfileRequest ToEditProfileRequest(this EditProfileVM source)
+        public static EditProfileRequest ToEditProfileRequest(this EditProfileVM source, string currentAccount)
         {
             return new EditProfileRequest
             {
                 Id = source.Id,
-                Account = source.Account,
+                Account = currentAccount,
                 Name = source.Name,
                 IsConfirmed = source.IsConfirmed,
                 ConfirmCode = source.ConfirmCode,

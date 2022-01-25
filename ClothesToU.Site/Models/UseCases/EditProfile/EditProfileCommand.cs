@@ -11,11 +11,12 @@ namespace ClothesToU.Site.Models.UseCases.EditProfile
 {
     public class EditProfileCommand
     {
-        public EditProfileResponse Execute(EditProfileVM editProfileVM)
+        public EditProfileResponse Execute(EditProfileVM editProfileVM, string currentAccount)
         {
+            
             var service = new MemberService();
             //Request
-            EditProfileRequest request = editProfileVM.ToEditProfileRequest();
+            EditProfileRequest request = editProfileVM.ToEditProfileRequest(currentAccount);
 
             MemberEntity result = service.EditProfile(request);
 

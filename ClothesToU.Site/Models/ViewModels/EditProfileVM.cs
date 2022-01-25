@@ -18,11 +18,6 @@ namespace ClothesToU.Site.Models.ViewModels
         [StringLength(20)]
         public string Name { get; set; }
 
-        public bool IsConfirmed { get; set; }
-
-        [StringLength(50)]
-        public string ConfirmCode { get; set; }
-
         [StringLength(10)]
         public string Mobile { get; set; }
 

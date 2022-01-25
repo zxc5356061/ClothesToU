@@ -52,6 +52,7 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -164,6 +165,9 @@
     <Compile Include="Models\Entities\LoginEntity.cs" />
     <Compile Include="Models\Entities\MemberEntity.cs" />
     <Compile Include="Models\Entities\SaltEntity.cs" />
+    <Compile Include="Models\Extensions\EditProfileRequestExt.cs" />
+    <Compile Include="Models\Extensions\EditProfileResponseExt.cs" />
+    <Compile Include="Models\Extensions\EditProfileVMExt.cs" />
     <Compile Include="Models\Extensions\LoginVMExt.cs" />
     <Compile Include="Models\Extensions\MemberEntityExt.cs" />
     <Compile Include="Models\Extensions\MemberExts.cs" />
@@ -230,6 +234,7 @@
     <Content Include="Views\Members\Index.cshtml" />
     <Content Include="Views\Members\EditProfile.cshtml" />
     <Content Include="Views\FrontProducts\Index2.cshtml" />
+    <Content Include="Views\Members\EditProfileConfirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

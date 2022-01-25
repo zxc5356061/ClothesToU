@@ -148,28 +148,132 @@
 		-add MembersController.Index(), Index view page
 [v] modify /Views/Shared/_Layout.cshtml
 		<li>@Html.ActionLink("會員中心", "Index", "Members")</li>
-
 ======================
+
 ## [working on] Update Member data(/Members/EditProfile)
-[v] add /Models/ViewModels/EditProfileVM.cs
+[v] add /Models/Entities/EditProfileEntity class
+        -public int Id { get; set; }
+		-public string Account { get; set; }
 		-public string Name { get; set; }
+		-public bool IsConfirmed { get; set; }
+		-public string ConfirmCode { get; set; }
+		-public string Mobile { get; set; }
+		-public string Address { get; set; }
+
+[v] add /Models/ViewModels/EditProfileVM.cs
+		-public int Id { get; set; }
+		-public string Account { get; set; }
+		-public string Name { get; set; }
+		-public bool IsConfirmed { get; set; }
+		-public string ConfirmCode { get; set; }
 		-public string Mobile { get; set; }
 		-public string Address { get; set; }
 
 [v] add /Models/UseCases/EditProfileRequest class
+		-public int Id { get; set; }
+		-public string Account { get; set; }
 		-public string Name { get; set; }
+		-public bool IsConfirmed { get; set; }
+		-public string ConfirmCode { get; set; }
 		-public string Mobile { get; set; }
 		-public string Address { get; set; }
 
-[] add /Models/UseCases/EditProfileResponse class
+[v] add /Models/Extensions/MemberEntityExt
+		-public static EditProfileVM ToEditProfileVM(this MemberEntity source)
+			-Id = source.Id,
+			-Account = source.Account,
+			-Name = source.Name,
+			-IsConfirmed = source.IsConfirmed,
+			-ConfirmCode = source.ConfirmCode,
+			-Mobile = source.Mobile,
+			-Address = source.Address
 
-[v] add /Models/Entities/EditProfileEntity class
-        -public string Name { get; set; }
-        -public string Mobile { get; set; }
-        -public string Address { get; set; }
+[v] add /Models/Extensions/EditProfileVMExt
+		-public static EditProfileRequest ToEditProfileRequest(this EditProfileVM source)
+            -Id = source.Id,
+            -Account = source.Account,
+            -Name = source.Name,
+            -IsConfirmed = source.IsConfirmed,
+            -ConfirmCode = source.ConfirmCode,
+            -Mobile = source.Mobile,
+            -Address = source.Address,
+
+[v] add /Models/Core/Interfaces/IEditMemberDataRepository class
+		//for updating general member data except password
+		-MemberEntity Load(string account);
+		-void Update(EditProfileEntity entity);
+		//for updating password
+		-MemberEntity Load(int memberId);
+		-void UpdatePassword(int memberId, string encryptedPassword);
+
+[v] Load current member data before editing
+		-public class MembersController : Controller
+			-add IEditMemberDataRepository editMemberDataRepository = new EditMemberDataRepository();
+			-implement EditMemberRepository > public MemberEntity Load(string account)
+			-public ActionResult EditProfile()[Authorize]
+			-amend /Views/Members/EditProfile.cshtml(set Account field to readonly)
+				<dl class="dl-horizontal">
+					<dt>
+						@Html.DisplayNameFor(model => model.Account)
+					</dt>
+					<dd>
+						@Html.DisplayFor(model => model.Account)
+					</dd>
+				</dl>
+
+[working on] implement EditMemberDataRepository class
+[v] implement EditMemberDataRepository Update function
+		-public void Update(EditProfileEntity entity)
+		    -Member member = db.Members.Find(entity.Id);
+            -member.Name = entity.Name;
+            -member.IsConfirmed = entity.IsConfirmed;
+            -member.ConfirmCode = entity.ConfirmCode;
+            -member.Mobile = entity.Mobile;
+            -member.Address = entity.Address;
+
+[v] add /Models/Extensions EditProfileRequestExt
+		-public static MemberEntity ToMemberEntity(this EditProfileRequest source)
+			-Account = source.Account,
+			-Name = source.Name,
+			-IsConfirmed = source.IsConfirmed,
+			-ConfirmCode = source.ConfirmCode,
+			-Mobile = source.Mobile,
+			-Address = source.Address,
+
+[working on] service: public void UpdateProfile(UpdateProfileRequest request)
+
+[working on] add /Models/UseCases/EditProfileCommand class
+		-public EditProfileResponse Execute(EditProfileVM editProfileVM)
+
+[working on] add new function in public class MembersController
+		-public ActionResult EditProfile(EditProfileVM model)[HttpPost][Authorize]
+
+
 
 [] add UpdateProfileRequest class, add MemberService.UpdateProfile(UpdateProfileRequest)
 	UpdateProfileRequest class 加入 string "CurrentUserAccount property
+
+[working on] add /Models/UseCases/EditProfileResponse class
+
+[working on] add EditProfileResponseExt
+        public static EditProfileVM ToEditProfileVM(this EditProfileResponse source)
+        {
+            return new EditProfileVM
+            {
+                Id = source.Data.Id,
+                Account = source.Data.Account,
+                Name = source.Data.Name,
+                IsConfirmed = source.Data.IsConfirmed,
+                ConfirmCode = source.Data.ConfirmCode,
+                Mobile = source.Data.Mobile,
+                Address = source.Data.Address,
+            };
+        }
+
+
+
+
+
 
 
 
@@ -182,15 +286,7 @@
 	add IMemberRepository.UpdatePassword()
 [] /Members/Index/, EditProfile,EditPassword, Logout 要加[Authorize]
 
-IEditMemberDataRepository
 
-[] 載入個人基本資料
-public class MembersController : Controller
-add IEditMemberDataRepository editMemberDataRepository = new EditMemberDataRepository();
-add public ActionResult EditProdile()
-add public static EditProfileVM ToEditProfileVM(this MemberEntity source)
-add MemberExts
-public MemberEntity Load(string account)
 
 [] add MembersController.EditProfile() , add "EditProfile" view page
 [] add UpdateProfileRequest class, add MemberService.UpdateProfile(UpdateProfileRequest)
@@ -204,7 +300,7 @@ public MemberEntity Load(string account)
 
 ======================
 ## [] Update Current Password
-123
+
 
 ======================
 ## [] Add Index2 商品呈現

@@ -160,13 +160,10 @@
     <Compile Include="Models\EFModels\Order.cs" />
     <Compile Include="Models\EFModels\OrderItem.cs" />
     <Compile Include="Models\EFModels\Product.cs" />
-    <Compile Include="Models\Entities\EditProfileEntity.cs" />
     <Compile Include="Models\Entities\FrontProdEntity.cs" />
     <Compile Include="Models\Entities\LoginEntity.cs" />
     <Compile Include="Models\Entities\MemberEntity.cs" />
     <Compile Include="Models\Entities\SaltEntity.cs" />
-    <Compile Include="Models\Extensions\EditProfileRequestExt.cs" />
-    <Compile Include="Models\Extensions\EditProfileResponseExt.cs" />
     <Compile Include="Models\Extensions\EditProfileVMExt.cs" />
     <Compile Include="Models\Extensions\LoginVMExt.cs" />
     <Compile Include="Models\Extensions\MemberEntityExt.cs" />
@@ -177,9 +174,7 @@
     <Compile Include="Models\Repositories\EditMemberDataRepository.cs" />
     <Compile Include="Models\Repositories\LoginRepository.cs" />
     <Compile Include="Models\Repositories\RegisterRepository.cs" />
-    <Compile Include="Models\UseCases\EditProfile\EditProfileCommand.cs" />
     <Compile Include="Models\UseCases\EditProfile\EditProfileRequest.cs" />
-    <Compile Include="Models\UseCases\EditProfile\EditProfileResponse.cs" />
     <Compile Include="Models\UseCases\Login\LoginCommand.cs" />
     <Compile Include="Models\UseCases\Login\LoginRequest.cs" />
     <Compile Include="Models\UseCases\Login\LoginResponse.cs" />
@@ -234,7 +229,6 @@
     <Content Include="Views\Members\Index.cshtml" />
     <Content Include="Views\Members\EditProfile.cshtml" />
     <Content Include="Views\FrontProducts\Index2.cshtml" />
-    <Content Include="Views\Members\EditProfileConfirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

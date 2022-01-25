@@ -22,23 +22,17 @@ namespace ClothesToU.Site.Models.Repositories
         {
             //Member account is not allowed to be amended.
             //Member password amending is implemented in "UpdatePassword" function.
-            Member member = db.Members.Find(entity.Id);
+            var member = db.Members.Find(entity.Id);
+
+            member.Account = entity.Account;
             member.Name = entity.Name;
-            member.IsConfirmed = entity.IsConfirmed;
-            member.ConfirmCode = entity.ConfirmCode;
             member.Mobile = entity.Mobile;
             member.Address = entity.Address;
+            member.IsConfirmed = entity.IsConfirmed;
+            member.ConfirmCode = entity.ConfirmCode;
+
             db.SaveChanges();
         }
 
-
-        public MemberEntity Load(int memberId)
-        {
-            throw new NotImplementedException();
-        }
-        public void UpdatePassword(int memberId, string encryptedPassword)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

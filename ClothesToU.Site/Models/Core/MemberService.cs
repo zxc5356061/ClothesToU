@@ -116,21 +116,20 @@ namespace ClothesToU.Site.Models.Core
 			return url;
 		}//Member Login_end
 
-		public MemberEntity EditProfile(EditProfileRequest request)
+		public void EditProfile(EditProfileRequest request)
         {
 			
 			// 取得在db裡的原始記錄
 			MemberEntity entity = editMemberDataRepository.Load(request.Account);
-			if (entity == null)
-            {
-				return null;
-            }
-            else
-            {
-				entity = request.ToMemberEntity();
-				editMemberDataRepository.Update(entity);
-				return entity;
-			}
+			//if (entity == null) throw new Exception("找不到要修改的會員記錄");
+
+			//更新紀錄
+			entity.Name = request.Name;
+			entity.Address = request.Address;
+			entity.Mobile = request.Mobile;
+			entity.Account = request.Account;
+
+			editMemberDataRepository.Update(entity);
 		}
 	}
 }

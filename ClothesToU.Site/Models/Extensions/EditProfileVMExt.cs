@@ -13,7 +13,8 @@ namespace ClothesToU.Site.Models.Extensions
         {
             return new EditProfileRequest
             {
-                Account = currentUserAccount,
+                CurrentUserAccount = currentUserAccount,
+                Account = source.Account,
                 Name = source.Name,
                 Mobile = source.Mobile,
                 Address = source.Address,

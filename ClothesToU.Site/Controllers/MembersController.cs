@@ -12,12 +12,14 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using ClothesToU.Site.Models.UseCases.EditProfile;
+using ClothesToU.Site.Models.Core;
 
 namespace ClothesToU.Site.Controllers
 {
     public class MembersController : Controller
     {
         IEditMemberDataRepository editMemberDataRepository = new EditMemberDataRepository();
+        
         // GET: Members
         public ActionResult Register()
         {
@@ -85,7 +87,6 @@ namespace ClothesToU.Site.Controllers
         [Authorize]
         public ActionResult EditProfile()
         {
-            //Controller直接存取Repository，不佳(?
             string currentUserAccount = User.Identity.Name;//Get data from IPrincipal
 
             MemberEntity entity = editMemberDataRepository.Load(currentUserAccount);
@@ -99,24 +100,31 @@ namespace ClothesToU.Site.Controllers
         public ActionResult EditProfile(EditProfileVM model)
         {
             string currentUserAccount = User.Identity.Name;
-            model.Account = currentUserAccount;
 
             if (ModelState.IsValid == false)
             {
-                return RedirectToAction("LogOut");
+                return View(model);
             }
+
+            EditProfileRequest request = model.ToEditProfileRequest(currentUserAccount);
 
             try
             {
-                EditProfileCommand command = new EditProfileCommand();
-                model = command.Execute(model).ToEditProfileVM();
-                return View(model);
+                MemberService service = new MemberService();
+                service.EditProfile(request);
             }catch (Exception ex)
             {
                 ModelState.AddModelError(string.Empty, ex.Message);
             }
 
-            return View("EditProfileConfirm");
+            if (ModelState.IsValid == true)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(model);
+            }
 
         }
 

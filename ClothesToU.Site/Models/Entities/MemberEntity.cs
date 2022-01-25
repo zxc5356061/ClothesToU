@@ -6,22 +6,9 @@ using System.Web;
 
 namespace ClothesToU.Site.Models.Entities
 {
-    public class MemberEntity:SaltEntity
+    public class MemberEntity: MemberEntityWithoutPassword
     {
-        public int Id { get; set; }
-        public string Account { get; set; }
-
         public string Password { get; set; }
-
-        public string Name { get; set; }
-
-        public string Mobile { get; set; }
-
-        public string Address { get; set; }
-
-        public string ConfirmCode { get; set; }
-        public bool IsConfirmed { get; set; }
-
         public string EncryptedPassword
         {
             get
@@ -33,5 +20,19 @@ namespace ClothesToU.Site.Models.Entities
         }
                
 
+    }
+
+    public class MemberEntityWithoutPassword:SaltEntity
+    {
+        public int Id { get; set; }
+        public string Account { get; set; }
+        public string Name { get; set; }
+
+        public string Mobile { get; set; }
+
+        public string Address { get; set; }
+
+        public string ConfirmCode { get; set; }
+        public bool IsConfirmed { get; set; }
     }
 }

@@ -151,7 +151,7 @@
 ======================
 
 ## [working on] Update Member data(/Members/EditProfile)
-[v] add /Models/Entities/EditProfileEntity class
+[v] add /Models/Entities/EditProfileEntity class ????
         -public int Id { get; set; }
 		-public string Account { get; set; }
 		-public string Name { get; set; }
@@ -184,12 +184,9 @@
 			-Address = source.Address
 
 [v] add /Models/Extensions/EditProfileVMExt
-		-public static EditProfileRequest ToEditProfileRequest(this EditProfileVM source)
-            -Id = source.Id,
-            -Account = source.Account,
+		-public static EditProfileRequest ToEditProfileRequest(this EditProfileVM source, string currentUserAccount)
+            -Account = currentUserAccount,
             -Name = source.Name,
-            -IsConfirmed = source.IsConfirmed,
-            -ConfirmCode = source.ConfirmCode,
             -Mobile = source.Mobile,
             -Address = source.Address,
 

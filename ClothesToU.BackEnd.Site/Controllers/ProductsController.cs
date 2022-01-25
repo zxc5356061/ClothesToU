@@ -71,11 +71,12 @@ namespace ClothesToU.BackEnd.Site.Controllers
             service.Create(model.ToRequest());
 
             //複製圖片
-            ImageHelper.CopyFile();        
+            ImageHelper.CopyFile();
             
-            
-            
-            
+
+
+
+
             //redirect to Index頁
             return RedirectToAction("Index");
         }

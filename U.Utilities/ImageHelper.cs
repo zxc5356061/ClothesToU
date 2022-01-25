@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace U.Utilities
 {
-	public static class ImageHelper
+	public class ImageHelper
 	{
 		public static bool IsImage(string fileName)
 		{

@@ -4,16 +4,18 @@
     ViewBag.Title = "Index";
 }
 
-<h2>後台商品維護</h2>
+<h1>後台商品維護</h1>
 
+<br />
 
 
 <form class="form-inline" action="" method="get">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                標題: <input type="text" name="name" class="form-control" value="@ViewBag.C_Name">
-                描述: <input type="text" name="description" class="form-control" value="@ViewBag.C_Description">
+                標題 : <input type="text" name="name" class="form-control" value="@ViewBag.C_Name">
+                     
+                描述 : <input type="text" name="description" class="form-control" value="@ViewBag.C_Description">
                     <input type="submit" value="查詢" class=" btn btn-primary" style="background-color: orange;color:black; border-style: hidden; font-weight: bold;"/>
             </div>
         </div>
@@ -26,10 +28,11 @@
 </p>
 
 <table class="table">
-    <tr>
+    <tr style="background-color: thistle;color:black;">
         <th>
             @Html.DisplayNameFor(model => model.Id)
         </th>
+
         <th>
             @Html.DisplayNameFor(model => model.CategoryId)
         </th>
@@ -59,10 +62,10 @@
 
 
         <th></th>
-    </tr>
+        </trclass="active">
 
-    @foreach (var item in Model)
-    {
+        @foreach (var item in Model)
+        {
         <tr class="active">
             <td>
                 @Html.DisplayFor(modelItem => item.Id)
@@ -95,10 +98,10 @@
             </td>
 
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) 
-                
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+
             </td>
         </tr>
     }
 
-</table>
+    </table>

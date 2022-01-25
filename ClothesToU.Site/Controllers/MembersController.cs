@@ -12,12 +12,15 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using ClothesToU.Site.Models.UseCases.EditProfile;
+using ClothesToU.Site.Models.Core;
 
 namespace ClothesToU.Site.Controllers
 {
     public class MembersController : Controller
     {
         IEditMemberDataRepository editMemberDataRepository = new EditMemberDataRepository();
+        MemberService service = new MemberService();
+
         // GET: Members
         public ActionResult Register()
         {
@@ -85,7 +88,6 @@ namespace ClothesToU.Site.Controllers
         [Authorize]
         public ActionResult EditProfile()
         {
-            //Controller直接存取Repository，不佳(?
             string currentUserAccount = User.Identity.Name;//Get data from IPrincipal
 
             MemberEntity entity = editMemberDataRepository.Load(currentUserAccount);
@@ -98,25 +100,45 @@ namespace ClothesToU.Site.Controllers
         [HttpPost]
         public ActionResult EditProfile(EditProfileVM model)
         {
+            string currentUserAccount = User.Identity.Name;
             
+
             if (ModelState.IsValid == false)
             {
-                return RedirectToAction("LogOut");
+                return View(model);
             }
 
+            EditProfileRequest request = model.ToEditProfileRequest(currentUserAccount);
+            
             try
             {
-                string currentAccount = User.Identity.Name;
-                EditProfileCommand command = new EditProfileCommand();
-                model = command.Execute(model, currentAccount).ToEditProfileVM();
-                return View(model);
-            }catch (Exception ex)
+                service.EditProfile(request);
+            }
+            catch (Exception ex)
             {
                 ModelState.AddModelError(string.Empty, ex.Message);
             }
 
-            return View("EditProfileConfirm");
+            if (ModelState.IsValid == true)
+            {
+                return RedirectToAction("EditProfileConfirm");
+            }
+            else
+            {
+                return View(model);
+            }
 
+        }
+
+        [Authorize]
+        public ActionResult EditProfileConfirm()
+        {
+            string currentUserAccount = User.Identity.Name;//Get data from IPrincipal
+
+            MemberEntity entity = editMemberDataRepository.Load(currentUserAccount);
+            EditProfileVM model = entity.ToEditProfileVM();
+
+            return View(model);
         }
 
     }

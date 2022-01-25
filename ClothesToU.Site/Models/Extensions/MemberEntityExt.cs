@@ -29,8 +29,6 @@ namespace ClothesToU.Site.Models.Extensions
                 Id = source.Id,
                 Account = source.Account,
                 Name = source.Name,
-                IsConfirmed = source.IsConfirmed,
-                ConfirmCode = source.ConfirmCode,
                 Mobile = source.Mobile,
                 Address = source.Address
             };

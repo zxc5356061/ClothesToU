@@ -151,7 +151,7 @@
 ======================
 
 ## [working on] Update Member data(/Members/EditProfile)
-[v] add /Models/Entities/EditProfileEntity class
+[v] add /Models/Entities/EditProfileEntity class ????
         -public int Id { get; set; }
 		-public string Account { get; set; }
 		-public string Name { get; set; }
@@ -164,17 +164,12 @@
 		-public int Id { get; set; }
 		-public string Account { get; set; }
 		-public string Name { get; set; }
-		-public bool IsConfirmed { get; set; }
-		-public string ConfirmCode { get; set; }
 		-public string Mobile { get; set; }
 		-public string Address { get; set; }
 
 [v] add /Models/UseCases/EditProfileRequest class
-		-public int Id { get; set; }
 		-public string Account { get; set; }
 		-public string Name { get; set; }
-		-public bool IsConfirmed { get; set; }
-		-public string ConfirmCode { get; set; }
 		-public string Mobile { get; set; }
 		-public string Address { get; set; }
 
@@ -189,12 +184,9 @@
 			-Address = source.Address
 
 [v] add /Models/Extensions/EditProfileVMExt
-		-public static EditProfileRequest ToEditProfileRequest(this EditProfileVM source)
-            -Id = source.Id,
-            -Account = source.Account,
+		-public static EditProfileRequest ToEditProfileRequest(this EditProfileVM source, string currentUserAccount)
+            -Account = currentUserAccount,
             -Name = source.Name,
-            -IsConfirmed = source.IsConfirmed,
-            -ConfirmCode = source.ConfirmCode,
             -Mobile = source.Mobile,
             -Address = source.Address,
 
@@ -304,3 +296,16 @@
 
 ======================
 ## [] 
+
+        [Authorize]
+        public ActionResult EditProfileConfirm()
+        {
+            string currentUserAccount = User.Identity.Name;//Get data from IPrincipal
+
+            MemberEntity entity = editMemberDataRepository.Load(currentUserAccount);
+            EditProfileVM model = entity.ToEditProfileVM();
+
+            return View(model);
+        }
+
+		Complete EditProfile(exclude password)

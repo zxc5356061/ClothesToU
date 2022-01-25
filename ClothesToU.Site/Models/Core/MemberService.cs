@@ -24,24 +24,25 @@ namespace ClothesToU.Site.Models.Core
 		{
 			this.registerRepository = new RegisterRepository();
 			this.loginRepository = new LoginRepository();
+			this.editMemberDataRepository = new EditMemberDataRepository();
 		}
-		public MemberService(IRegisterRepository _registerRepository)
-		{
-			this.registerRepository = _registerRepository;
-		}
-		public MemberService(ILoginRepository _loginRepository)
-		{
-			this.loginRepository = _loginRepository;
-		}
-		public MemberService(IEditMemberDataRepository _editMemberDataRepository)
+
+        public MemberService(IRegisterRepository _registerRepository)
         {
-			this.editMemberDataRepository = _editMemberDataRepository;
+            this.registerRepository = _registerRepository;
+        }
+        public MemberService(ILoginRepository _loginRepository)
+        {
+            this.loginRepository = _loginRepository;
+        }
+        public MemberService(IEditMemberDataRepository _editMemberDataRepository)
+        {
+            this.editMemberDataRepository = _editMemberDataRepository;
+        }
 
-		}
 
-
-		//New Register
-		public RegisterResponse CreateNewMember(RegisterRequest request)
+        //New Register
+        public RegisterResponse CreateNewMember(RegisterRequest request)
 		{
 			// 判斷帳號是否已存在
 			if (registerRepository.IsExist(request.Account))
@@ -116,21 +117,21 @@ namespace ClothesToU.Site.Models.Core
 			return url;
 		}//Member Login_end
 
-		public MemberEntity EditProfile(EditProfileRequest request)
+		public void EditProfile(EditProfileRequest request)
         {
-			
+
 			// 取得在db裡的原始記錄
-			var entity = editMemberDataRepository.Load(request.Account);
-			if (entity == null)
-            {
-				return null;
-            }
-            else
-            {
-				entity = request.ToMemberEntity();
-				editMemberDataRepository.Update(entity);
-				return entity;
-			}
+			//記得要先寫constructor才能呼叫Repository
+			MemberEntity entity = editMemberDataRepository.Load(request.CurrentUserAccount);
+			if (entity == null) throw new Exception("找不到要修改的會員記錄");
+
+			//更新紀錄
+			entity.Name = request.Name;
+			entity.Address = request.Address;
+			entity.Mobile = request.Mobile;
+			entity.Account = request.Account;
+
+			editMemberDataRepository.Update(entity);
 		}
 	}
 }

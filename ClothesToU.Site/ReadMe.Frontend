@@ -312,38 +312,55 @@
 ## [working on] CartServices
 [] add ICartService
 [] add CartEntity
-[] add /Models/UseCases/Cart/CreateOrderRequest
-[] add /Models/ValueObjects/ShippingInfo
+[v] add /Models/UseCases/Cart/CreateOrderRequest
+		-public int CustomerId { get; set; }
+		-public List<CreateOrderItem> Items { get; set; }
+		-public int Total => Items.Sum(x => x.SubTotal);
+		-public ShippingInfo ShippingInfo { get; set; }
+
+[v] add /Models/ValueObjects/ShippingInfo
 		-public string Receiver { get; set; }
 		-public string Address { get; set; }
 		-public string CellPhone { get; set; }
+
 [v] add /Models/ValueObjects/DeductStockInfo
 		-public int ProductId { get; set; }
 		-public int Qty { get; set; }
-[] add /Models/ValueObjects/CreateOrderItem
+
+[v] add /Models/ValueObjects/CreateOrderItem
 		-public int ProductId { get; set; }
 		-public string ProductName { get; set; }
 		-public int Price { get; set; }
 		-public int Qty { get; set; }
 		-public int SubTotal => Price * Qty;
 
-[] add /Models/ValueObjects/CreateOrderRequest
-		-public int CustomerId { get; set; }
-		-public List<CreateOrderItem> Items { get; set; }
-		-public int Total => Items.Sum(x => x.SubTotal);
-		-public ShippingInfo ShippingInfo { get; set; }
+[v] add /Models/ValueObjects/ReviseStockInfo
+        -public int ProductId { get; set; }
+        -public int Qty { get; set; }
 
-[] add /Models/ValueObjects/
+[v] add /Models/Entities/CartProductEntity
+		-public int Id { get; set; }
+		-public string Name { get; set; }
+		-public int Price { get; set; }
 
-[] add /Models/ValueObjects/
+[v] add /Extensions/ProductExt
+		-public static CartProductEntity ToCartProductEntity(this Product source)
 
-[] add /Models/ValueObjects/
+[working on] add /Models/Entities/CartItemEntity
 
-[] add /Models/ValueObjects/
+[] add /Models/Entities/CartEntity
+public CartEntity(int id, string customerAccount)
+public CartEntity(int id, string customerAccount, List<CartItemEntity> items)
 
-[] add /Models/ValueObjects/
 
-[] add /Models/ValueObjects/
+
+
+
+[] add /Models/Entities/
+
+[] add /Models/Entities/
+
+[] add /Models/Entities/
 
 
 

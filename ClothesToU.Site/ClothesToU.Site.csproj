@@ -162,7 +162,9 @@
     <Compile Include="Models\EFModels\Order.cs" />
     <Compile Include="Models\EFModels\OrderItem.cs" />
     <Compile Include="Models\EFModels\Product.cs" />
-    <Compile Include="Models\Entities\CartEntity.cs" />
+    <Compile Include="Models\Entities\Cart\CartEntity.cs" />
+    <Compile Include="Models\Entities\Cart\CartItemEntity.cs" />
+    <Compile Include="Models\Entities\Cart\CartProductEntity.cs" />
     <Compile Include="Models\Entities\FrontProdEntity.cs" />
     <Compile Include="Models\Entities\LoginEntity.cs" />
     <Compile Include="Models\Entities\MemberEntity.cs" />
@@ -171,6 +173,7 @@
     <Compile Include="Models\Extensions\LoginVMExt.cs" />
     <Compile Include="Models\Extensions\MemberEntityExt.cs" />
     <Compile Include="Models\Extensions\MemberExts.cs" />
+    <Compile Include="Models\Extensions\ProductExt.cs" />
     <Compile Include="Models\Extensions\RegisterRequestExt.cs" />
     <Compile Include="Models\Extensions\RegisterVMExt.cs" />
     <Compile Include="Models\Infrastractures\HashUtility.cs" />
@@ -186,8 +189,8 @@
     <Compile Include="Models\UseCases\Register\RegisterRequest.cs" />
     <Compile Include="Models\UseCases\Register\RegisterResponse.cs" />
     <Compile Include="Models\ValueObjects\CreateOrderItem.cs" />
-    <Compile Include="Models\ValueObjects\CreateOrderRequest.cs" />
     <Compile Include="Models\ValueObjects\DeductStockInfo.cs" />
+    <Compile Include="Models\ValueObjects\ReviseStockInfo.cs" />
     <Compile Include="Models\ValueObjects\ShippingInfo.cs" />
     <Compile Include="Models\ViewModels\EditProfileVM.cs" />
     <Compile Include="Models\ViewModels\LoginVM.cs" />

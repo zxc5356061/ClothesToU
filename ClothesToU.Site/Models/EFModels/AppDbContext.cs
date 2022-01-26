@@ -22,6 +22,11 @@ namespace ClothesToU.Site.Models.EFModels
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Category>()
+                .HasMany(e => e.Products)
+                .WithRequired(e => e.Category)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<Member>()
                 .Property(e => e.Mobile)
                 .IsFixedLength();

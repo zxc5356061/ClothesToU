@@ -196,9 +196,6 @@
     <Content Include="Views\Products\Create.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index2.cshtml" />
-    <Content Include="Views\BackendHome\About.cshtml" />
-    <Content Include="Views\BackendHome\Contact.cshtml" />
-    <Content Include="Views\BackendHome\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

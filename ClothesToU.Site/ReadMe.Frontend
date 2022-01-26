@@ -11,24 +11,12 @@
 ## [v] New Member Register
 ## [v] Member Login
 ## [v] Member Center page
-## [v] Update Member data
-## [Not Yet] Update Current Password
-## [Not Yet] Forgot Password
-## [Not Yet] MemberData CRUD(backend)
-
-*** Shopping Cart ***
-## [working on] CartServices
-## [] OrderService
-## [] ProductService
-## [] StockService
-## [] CustomerService
-## [] Mediator
-## [] Repositories
-## [] Products Index Page
-## [] CartController
-## [] ViewPage
+## [working on] Update Member data
+## [] Update Current Password
+## [] Forgot Password
+## [] MemberData CRUD(backend)
 ======================
-*** MemberService ****** MemberService ****** MemberService ****** MemberService ****** MemberService ***
+
 ## New Member Register
 [v] add /Models/EFModels/AppDbContext
 
@@ -162,8 +150,8 @@
 		<li>@Html.ActionLink("會員中心", "Index", "Members")</li>
 ======================
 
-## [v] Update Member data(/Members/EditProfile)
-[v] add /Models/Entities/EditProfileEntity class ????
+## [working on] Update Member data(/Members/EditProfile)
+[v] add /Models/Entities/EditProfileEntity class
         -public int Id { get; set; }
 		-public string Account { get; set; }
 		-public string Name { get; set; }
@@ -176,12 +164,17 @@
 		-public int Id { get; set; }
 		-public string Account { get; set; }
 		-public string Name { get; set; }
+		-public bool IsConfirmed { get; set; }
+		-public string ConfirmCode { get; set; }
 		-public string Mobile { get; set; }
 		-public string Address { get; set; }
 
 [v] add /Models/UseCases/EditProfileRequest class
+		-public int Id { get; set; }
 		-public string Account { get; set; }
 		-public string Name { get; set; }
+		-public bool IsConfirmed { get; set; }
+		-public string ConfirmCode { get; set; }
 		-public string Mobile { get; set; }
 		-public string Address { get; set; }
 
@@ -196,9 +189,12 @@
 			-Address = source.Address
 
 [v] add /Models/Extensions/EditProfileVMExt
-		-public static EditProfileRequest ToEditProfileRequest(this EditProfileVM source, string currentUserAccount)
-            -Account = currentUserAccount,
+		-public static EditProfileRequest ToEditProfileRequest(this EditProfileVM source)
+            -Id = source.Id,
+            -Account = source.Account,
             -Name = source.Name,
+            -IsConfirmed = source.IsConfirmed,
+            -ConfirmCode = source.ConfirmCode,
             -Mobile = source.Mobile,
             -Address = source.Address,
 
@@ -274,6 +270,13 @@
             };
         }
 
+
+
+
+
+
+
+
 [] add MembersController.EditProfile() , add "EditProfile" view page
 
 [] modify IMemberRepository=> add IsExists(account,excludeId), Update(MemberEntity)
@@ -294,124 +297,14 @@
 	add EditPasswordVM, ChangePasswordRequest
 	add IMemberRepository.UpdatePassword()
 [] /Members/Index/, EditProfile,EditPassword, Logout 要加[Authorize]
+
 ======================
-
-## [Not Yet] Update Current Password
-還沒寫
-======================
-
-## [Not Yet] Forgot Password
-還沒寫
-======================
-
-## [Not Yet] MemberData CRUD(backend)
-還沒寫
-======================
-
-*** Shopping Cart ****** Shopping Cart ****** Shopping Cart ****** Shopping Cart ****** Shopping Cart ***
-## [working on] CartServices
-[v] add ICartService
-
-[v] add /Models/UseCases/Cart/CreateOrderRequest
-		-public int CustomerId { get; set; }
-		-public List<CreateOrderItem> Items { get; set; }
-		-public int Total => Items.Sum(x => x.SubTotal);
-		-public ShippingInfo ShippingInfo { get; set; }
-
-[v] add /Models/ValueObjects/ShippingInfo
-		-public string Receiver { get; set; }
-		-public string Address { get; set; }
-		-public string CellPhone { get; set; }
-
-[v] add /Models/ValueObjects/DeductStockInfo
-		-public int ProductId { get; set; }
-		-public int Qty { get; set; }
-
-[v] add /Models/ValueObjects/CreateOrderItem
-		-public int ProductId { get; set; }
-		-public string ProductName { get; set; }
-		-public int Price { get; set; }
-		-public int Qty { get; set; }
-		-public int SubTotal => Price * Qty;
-
-[v] add /Models/ValueObjects/ReviseStockInfo
-        -public int ProductId { get; set; }
-        -public int Qty { get; set; }
-
-[v] add /Models/Entities/CartProductEntity
-		-public int Id { get; set; }
-		-public string Name { get; set; }
-		-public int Price { get; set; }
-
-[v] add /Models/Entities/CartItemEntity
-		-public CartItemEntity(CartProductEntity product, int qty)
-			{
-				Product = product;
-				Qty = qty;
-			}
-		-public int Id { get; set; }
-		-public CartProductEntity Product{ get; set; }
-		-public int Qty{ get; set; }
-		-public int SubTotal{get { return Product.Price * Qty; }}
-
-[v] add /Models/Entities/CartEntity
-		-public CartEntity(int id, string customerAccount)
-			{
-				this.Id = id;
-				this.CustomerAccount = customerAccount;
-				Items = new List<CartItemEntity>();
-			}
-		-public CartEntity(int id, string customerAccount, List<CartItemEntity> items)
-			{
-				this.Id = id;
-				this.CustomerAccount = customerAccount;
-				Items = items;
-			}
-		-public int Id { get; set; }
-		-public string CustomerAccount{ get; set; }
-		-private List<CartItemEntity> Items;
-		-public int Total { get;}
-		-public bool AllowCheckOut { get;}
-		-public ShippingInfo ShippingInfo { get; set; }
-		-public IEnumerable<CartItemEntity> GetItems()
-		-public void AddItem(CartProductEntity product, int qty)
-		-public void RemoveItem(int productId)
-		-public void UpdateQty(int productId, int newQty)
-
-[] add /Models/Entities/
-
-[] add /Models/Entities/
-
-[] add /Models/Entities/
-
+## [] Update Current Password
 
 
 ======================
-
-## [] OrderService
-======================
-
-## [] ProductService
-======================
-
-## [] StockService
-======================
-
-## [] CustomerService
-======================
-
-## [] Mediator
-======================
-
-## [] Repositories
-======================
-
-## [] Products Index Page
-======================
-
-## [] CartController
-======================
-
-## [] ViewPage
-======================
-...
+## [] Add Index2 商品呈現
+[v] add FrontProductsController
+[v] add FrontProdEntity
+[v] add Views/FrontProducts/Index2
+[V] add Files 資料夾

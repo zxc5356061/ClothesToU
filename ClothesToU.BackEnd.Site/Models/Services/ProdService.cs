@@ -34,6 +34,10 @@ namespace ClothesToU.BackEnd.Site.Models.Services
 				ModifiedTime = DateTime.Now,
 			};
 			_repo.Create(entity);
+
+
+
+
 		}
 
 		public void Update(EditProdRequest request)

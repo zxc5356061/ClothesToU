@@ -148,6 +148,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Core\Interfaces\CartService.cs" />
     <Compile Include="Models\Core\Interfaces\ICartService.cs" />
     <Compile Include="Models\Core\Interfaces\IEditMemberDataRepository.cs" />
     <Compile Include="Models\Core\Interfaces\ILoginRepository.cs" />
@@ -184,6 +185,8 @@
     <Compile Include="Models\UseCases\Register\RegisterCommand.cs" />
     <Compile Include="Models\UseCases\Register\RegisterRequest.cs" />
     <Compile Include="Models\UseCases\Register\RegisterResponse.cs" />
+    <Compile Include="Models\ValueObjects\CreateOrderItem.cs" />
+    <Compile Include="Models\ValueObjects\CreateOrderRequest.cs" />
     <Compile Include="Models\ValueObjects\DeductStockInfo.cs" />
     <Compile Include="Models\ValueObjects\ShippingInfo.cs" />
     <Compile Include="Models\ViewModels\EditProfileVM.cs" />

@@ -314,7 +314,38 @@
 [] add CartEntity
 [] add /Models/UseCases/Cart/CreateOrderRequest
 [] add /Models/ValueObjects/ShippingInfo
-[] add /Models/ValueObjects/DeductStockInfo
+		-public string Receiver { get; set; }
+		-public string Address { get; set; }
+		-public string CellPhone { get; set; }
+[v] add /Models/ValueObjects/DeductStockInfo
+		-public int ProductId { get; set; }
+		-public int Qty { get; set; }
+[] add /Models/ValueObjects/CreateOrderItem
+		-public int ProductId { get; set; }
+		-public string ProductName { get; set; }
+		-public int Price { get; set; }
+		-public int Qty { get; set; }
+		-public int SubTotal => Price * Qty;
+
+[] add /Models/ValueObjects/CreateOrderRequest
+		-public int CustomerId { get; set; }
+		-public List<CreateOrderItem> Items { get; set; }
+		-public int Total => Items.Sum(x => x.SubTotal);
+		-public ShippingInfo ShippingInfo { get; set; }
+
+[] add /Models/ValueObjects/
+
+[] add /Models/ValueObjects/
+
+[] add /Models/ValueObjects/
+
+[] add /Models/ValueObjects/
+
+[] add /Models/ValueObjects/
+
+[] add /Models/ValueObjects/
+
+
 
 ======================
 

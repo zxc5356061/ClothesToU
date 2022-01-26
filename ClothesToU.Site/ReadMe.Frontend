@@ -346,7 +346,20 @@
 [v] add /Extensions/ProductExt
 		-public static CartProductEntity ToCartProductEntity(this Product source)
 
-[working on] add /Models/Entities/CartItemEntity
+[v] add /Models/Entities/CartItemEntity
+		-public CartItemEntity(CartProductEntity product, int qty)
+			{
+				Product = product;
+				Qty = qty;
+			}
+		-public int Id { get; set; }
+		-public CartProductEntity Product{ get; set; }
+		-public int Qty{ get; set; }
+		-public int SubTotal{get { return Product.Price * Qty; }}
+
+
+[] add /Extensions/CartItemExt
+
 
 [] add /Models/Entities/CartEntity
 public CartEntity(int id, string customerAccount)

@@ -9,29 +9,50 @@
     @Scripts.Render("~/bundles/modernizr")
 <style>
     h1 {
-        font-family: 'Comic Sans MS',Calibri,'Lucida Bright';
+        font-family: 'Monotype Corsiva','Comic Sans MS',Calibri,'Lucida Bright';
         font-weight: 600;
-        font-size: 5em;
-        color:palevioletred;
+        font-size: 10em;
+        color: palevioletred;
+        text-shadow: 2px 2px 2px #676767;
+
     }
 
     h4 {
         font-family: 'Lucida Bright';
         font-weight: 500;
-        font-size: 1.5em;
+        font-size: 2em;
         color: black;
     }
-
-    body {
+    h3 {
+        font-family: 'Lucida Bright';
+        font-weight: 500;
+        font-size: 2em;
+        color: palevioletred;
+        text-shadow: 1px 1px 1px #676767;
+    }
+    h4 {
+        font-family: 'Lucida Bright';
+        font-weight: 500;
+        font-size: 2em;
+        color: black;
+    }
+    h5 {
+        font-family: 'Lucida Bright';
+        font-weight: 500;
+        font-size: 2em;
+        color: black;
+    }
+        body {
         color:black;
         font-weight: 300;
         background-color: pink;
     }
+
   
 </style>
 </head>
 <body>
-    <div class="navbar" style="background-color:whitesmoke;color:black; border-style: hidden; font-weight: bold; ">
+    <div class="navbar" style="background-color:lavender;color:black; border-style: hidden; font-weight: bold; ">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -41,13 +62,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Clothes To U", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse" style="background-color:whitesmoke; color: black; border-style: hidden; font-weight: bold; ">
+            <div class="navbar-collapse" style="background-color:lavender; color: black; border-style: hidden; font-weight: bold; ">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("關於我們", "About", "Home")</li>
                     <li>@Html.ActionLink("會員中心", "Index", "Members")</li>
                     <li>@Html.ActionLink("購物車", "Index", "Members")</li>
+                    <li>@Html.ActionLink("註冊會員", "Register", "Members")</li>
                 </ul>
 
                 @*manually added logout button here*@

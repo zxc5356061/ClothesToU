@@ -310,8 +310,8 @@
 
 *** Shopping Cart ****** Shopping Cart ****** Shopping Cart ****** Shopping Cart ****** Shopping Cart ***
 ## [working on] CartServices
-[] add ICartService
-[] add CartEntity
+[v] add ICartService
+
 [v] add /Models/UseCases/Cart/CreateOrderRequest
 		-public int CustomerId { get; set; }
 		-public List<CreateOrderItem> Items { get; set; }
@@ -343,9 +343,6 @@
 		-public string Name { get; set; }
 		-public int Price { get; set; }
 
-[v] add /Extensions/ProductExt
-		-public static CartProductEntity ToCartProductEntity(this Product source)
-
 [v] add /Models/Entities/CartItemEntity
 		-public CartItemEntity(CartProductEntity product, int qty)
 			{
@@ -357,17 +354,29 @@
 		-public int Qty{ get; set; }
 		-public int SubTotal{get { return Product.Price * Qty; }}
 
-
-[] add /Extensions/CartItemExt
-
-
-[] add /Models/Entities/CartEntity
-public CartEntity(int id, string customerAccount)
-public CartEntity(int id, string customerAccount, List<CartItemEntity> items)
-
-
-
-
+[v] add /Models/Entities/CartEntity
+		-public CartEntity(int id, string customerAccount)
+			{
+				this.Id = id;
+				this.CustomerAccount = customerAccount;
+				Items = new List<CartItemEntity>();
+			}
+		-public CartEntity(int id, string customerAccount, List<CartItemEntity> items)
+			{
+				this.Id = id;
+				this.CustomerAccount = customerAccount;
+				Items = items;
+			}
+		-public int Id { get; set; }
+		-public string CustomerAccount{ get; set; }
+		-private List<CartItemEntity> Items;
+		-public int Total { get;}
+		-public bool AllowCheckOut { get;}
+		-public ShippingInfo ShippingInfo { get; set; }
+		-public IEnumerable<CartItemEntity> GetItems()
+		-public void AddItem(CartProductEntity product, int qty)
+		-public void RemoveItem(int productId)
+		-public void UpdateQty(int productId, int newQty)
 
 [] add /Models/Entities/
 

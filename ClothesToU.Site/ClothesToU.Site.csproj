@@ -169,6 +169,7 @@
     <Compile Include="Models\Entities\LoginEntity.cs" />
     <Compile Include="Models\Entities\MemberEntity.cs" />
     <Compile Include="Models\Entities\SaltEntity.cs" />
+    <Compile Include="Models\Extensions\CartItemExt.cs" />
     <Compile Include="Models\Extensions\EditProfileVMExt.cs" />
     <Compile Include="Models\Extensions\LoginVMExt.cs" />
     <Compile Include="Models\Extensions\MemberEntityExt.cs" />

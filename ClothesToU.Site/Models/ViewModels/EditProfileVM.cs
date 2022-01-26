@@ -20,11 +20,6 @@ namespace ClothesToU.Site.Models.ViewModels
         [Display(Name = "姓名")]
         public string Name { get; set; }
 
-        public bool IsConfirmed { get; set; }
-
-        [StringLength(50)]
-        public string ConfirmCode { get; set; }
-
         [StringLength(10)]
         [Display(Name = "手機")]
         public string Mobile { get; set; }

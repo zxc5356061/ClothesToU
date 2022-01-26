@@ -8,6 +8,12 @@ namespace ClothesToU.BackEnd.Site.Models.EFModels
 
     public partial class Category
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Category()
+        {
+            Products = new HashSet<Product>();
+        }
+
         public int Id { get; set; }
 
         [Required]
@@ -15,5 +21,8 @@ namespace ClothesToU.BackEnd.Site.Models.EFModels
         public string Name { get; set; }
 
         public int DisplayOrder { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

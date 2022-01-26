@@ -21,7 +21,7 @@
         <div class="col-md-10">
             @Html.EditorFor(model => model.Account, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Account, "", new { @class = "text-danger" })
-            @Html.Label("註冊後無法修改帳號")
+            @Html.Label("帳號必須為可收信email")
         </div>
     </div>
 

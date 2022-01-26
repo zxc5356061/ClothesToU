@@ -6,6 +6,14 @@
 5. Create a new branch named "dev" based on "Origin/Master"
 6. Commit and pull
 7. Create Pull Request
+======================
+
+*** ProductService ***
+## [] Add Index2 商品呈現
+[v] add FrontProductsController
+[v] add FrontProdEntity
+[v] add Views/FrontProducts/Index2
+[V] add Files 資料夾
 
 *** MemberService ***
 ## [v] New Member Register
@@ -28,6 +36,15 @@
 ## [] CartController
 ## [] ViewPage
 ======================
+
+*** ProductService ****** ProductService ****** ProductService ****** ProductService ****** ProductService ***
+## [] Add Index2 商品呈現
+[v] add FrontProductsController
+[v] add FrontProdEntity
+[v] add Views/FrontProducts/Index2
+[V] add Files 資料夾
+======================
+
 *** MemberService ****** MemberService ****** MemberService ****** MemberService ****** MemberService ***
 ## New Member Register
 [v] add /Models/EFModels/AppDbContext

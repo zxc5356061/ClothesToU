@@ -70,8 +70,8 @@ namespace ClothesToU.BackEnd.Site.Controllers
             //新增紀錄
             service.Create(model.ToRequest());
 
-            //複製圖片
-            ImageHelper.CopyFile();
+            ////複製圖片
+            //ImageHelper.CopyFile();
             
 
 
@@ -141,7 +141,7 @@ namespace ClothesToU.BackEnd.Site.Controllers
                 TryDeleteFile(path, fileName);
 
 
-                ImageHelper.DeleteFile();
+                //ImageHelper.DeleteFile();
 
 
                 return RedirectToAction("Index");

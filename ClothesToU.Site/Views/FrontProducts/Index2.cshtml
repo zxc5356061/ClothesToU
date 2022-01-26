@@ -5,15 +5,13 @@
 }
 
 <h2>全部商品</h2>
-<ol class="breadcrumb">
+<ol class="breadcrumb" style="background-color:pink;color:black;font-weight: bold;">
     <li>@Html.ActionLink("首頁", "Index", "Home")</li>
-    <li>@Html.ActionLink("全部商品", "Index2","Products")</li>
+    <li>@Html.ActionLink("全部商品", "Index2","FrontProducts")</li>
 
 </ol>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     
     @foreach (var item in Model)

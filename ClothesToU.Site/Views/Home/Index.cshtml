@@ -1,13 +1,20 @@
-﻿@{
+﻿@model IEnumerable<ClothesToU.BackEnd.Site.Models.ViewModels.ProdIndexVM>
+
+@{
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
 
+<div class="jumbotron;col-md-12" style="color:palevioletred">
+    <h1>Clothes To U</h1>
+    <p class="lead"><h4>一個對各種身形友善的服裝品牌</h4> </p>
+    <br />
+
+</div>
+<div class="col-md-12">
+    <img src="~/Files/girls.jpg" alt="">
+</div>
+<p><h3>@Html.ActionLink("開 始 購 物 ♥️", "Index2", "FrontProducts")</h3></p>
 <div class="row">
     <div class="col-md-4">
         <h2>Getting started</h2>

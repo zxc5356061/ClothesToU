@@ -408,6 +408,8 @@
 
 [v] add /Models/Entities/OrderEntity
 
+[v] add /Models/ViewModels/CheckoutVM
+
 
 
 ======================

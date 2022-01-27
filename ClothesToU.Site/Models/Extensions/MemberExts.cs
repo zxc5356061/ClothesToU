@@ -25,5 +25,8 @@ namespace ClothesToU.Site.Models.Extensions
                 Address = entity.Address,
             };
         }
+
+        public static CustomerEntity ToCustomerEntity(this Member source)
+            => new CustomerEntity { Id = source.Id, CustomerAccount = source.Account };
     }
 }

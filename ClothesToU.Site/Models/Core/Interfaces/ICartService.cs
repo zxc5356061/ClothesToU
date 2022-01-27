@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ClothesToU.Site.Models.Core.Interfaces
 {
-    internal interface ICartService
+    public interface ICartService
     {
 		/// <summary>
 		/// 客戶發出結帳的請求，第二個參數是 customerAccount

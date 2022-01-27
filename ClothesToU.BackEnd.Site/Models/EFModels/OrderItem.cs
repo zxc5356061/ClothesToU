@@ -22,6 +22,8 @@ namespace ClothesToU.BackEnd.Site.Models.EFModels
 
         public int Price { get; set; }
 
+        public int? Subtotal { get; set; }
+
         public virtual Order Order { get; set; }
 
         public virtual Product Product { get; set; }

@@ -142,16 +142,31 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\FrontProductsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Core\CartMediator.cs" />
+    <Compile Include="Models\Core\CartService.cs" />
+    <Compile Include="Models\Core\CustomerService.cs" />
+    <Compile Include="Models\Core\Interfaces\CartInterfaces\ICartRepository.cs" />
+    <Compile Include="Models\Core\Interfaces\CartInterfaces\ICartService.cs" />
+    <Compile Include="Models\Core\Interfaces\CartInterfaces\ICustomerRepository.cs" />
+    <Compile Include="Models\Core\Interfaces\CartInterfaces\IOrderRepository.cs" />
+    <Compile Include="Models\Core\Interfaces\CartInterfaces\IOrderService.cs" />
+    <Compile Include="Models\Core\Interfaces\CartInterfaces\IProductRepository.cs" />
+    <Compile Include="Models\Core\Interfaces\CartInterfaces\IStockRepository.cs" />
+    <Compile Include="Models\Core\Interfaces\CartInterfaces\IStockService.cs" />
     <Compile Include="Models\Core\Interfaces\IEditMemberDataRepository.cs" />
     <Compile Include="Models\Core\Interfaces\ILoginRepository.cs" />
     <Compile Include="Models\Core\Interfaces\IRegisterRepository.cs" />
     <Compile Include="Models\Core\MemberService.cs" />
+    <Compile Include="Models\Core\OrderService.cs" />
+    <Compile Include="Models\Core\ProductService.cs" />
+    <Compile Include="Models\Core\StockService.cs" />
     <Compile Include="Models\EFModels\AppDbContext.cs" />
     <Compile Include="Models\EFModels\Cart.cs" />
     <Compile Include="Models\EFModels\CartItem.cs" />
@@ -180,6 +195,11 @@
     <Compile Include="Models\Extensions\RegisterRequestExt.cs" />
     <Compile Include="Models\Extensions\RegisterVMExt.cs" />
     <Compile Include="Models\Infrastractures\HashUtility.cs" />
+    <Compile Include="Models\Repositories\CartRepositories\CartRepository.cs" />
+    <Compile Include="Models\Repositories\CartRepositories\CustomerRepository.cs" />
+    <Compile Include="Models\Repositories\CartRepositories\OrderRepository.cs" />
+    <Compile Include="Models\Repositories\CartRepositories\ProductRepository.cs" />
+    <Compile Include="Models\Repositories\CartRepositories\StockRepository.cs" />
     <Compile Include="Models\Repositories\EditMemberDataRepository.cs" />
     <Compile Include="Models\Repositories\LoginRepository.cs" />
     <Compile Include="Models\Repositories\RegisterRepository.cs" />
@@ -249,6 +269,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Files\" />
+    <Folder Include="Views\Cart\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -148,8 +148,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Core\Interfaces\CartService.cs" />
-    <Compile Include="Models\Core\Interfaces\ICartService.cs" />
     <Compile Include="Models\Core\Interfaces\IEditMemberDataRepository.cs" />
     <Compile Include="Models\Core\Interfaces\ILoginRepository.cs" />
     <Compile Include="Models\Core\Interfaces\IRegisterRepository.cs" />
@@ -162,26 +160,30 @@
     <Compile Include="Models\EFModels\Order.cs" />
     <Compile Include="Models\EFModels\OrderItem.cs" />
     <Compile Include="Models\EFModels\Product.cs" />
-    <Compile Include="Models\Entities\Cart\CartEntity.cs" />
-    <Compile Include="Models\Entities\Cart\CartItemEntity.cs" />
-    <Compile Include="Models\Entities\Cart\CartProductEntity.cs" />
+    <Compile Include="Models\Entities\CartEntities\CartEntity.cs" />
+    <Compile Include="Models\Entities\CartEntities\CartItemEntity.cs" />
+    <Compile Include="Models\Entities\CartEntities\CartProductEntity.cs" />
+    <Compile Include="Models\Entities\CartEntities\CategoryEntity.cs" />
+    <Compile Include="Models\Entities\CartEntities\CustomerEntity.cs" />
+    <Compile Include="Models\Entities\CartEntities\OrderEntity.cs" />
+    <Compile Include="Models\Entities\CartEntities\OrderItemEntity.cs" />
+    <Compile Include="Models\Entities\CartEntities\OrderProductEntity.cs" />
+    <Compile Include="Models\Entities\CartEntities\ProductEntity.cs" />
     <Compile Include="Models\Entities\FrontProdEntity.cs" />
     <Compile Include="Models\Entities\LoginEntity.cs" />
     <Compile Include="Models\Entities\MemberEntity.cs" />
     <Compile Include="Models\Entities\SaltEntity.cs" />
-    <Compile Include="Models\Extensions\CartItemExt.cs" />
     <Compile Include="Models\Extensions\EditProfileVMExt.cs" />
     <Compile Include="Models\Extensions\LoginVMExt.cs" />
     <Compile Include="Models\Extensions\MemberEntityExt.cs" />
     <Compile Include="Models\Extensions\MemberExts.cs" />
-    <Compile Include="Models\Extensions\ProductExt.cs" />
     <Compile Include="Models\Extensions\RegisterRequestExt.cs" />
     <Compile Include="Models\Extensions\RegisterVMExt.cs" />
     <Compile Include="Models\Infrastractures\HashUtility.cs" />
     <Compile Include="Models\Repositories\EditMemberDataRepository.cs" />
     <Compile Include="Models\Repositories\LoginRepository.cs" />
     <Compile Include="Models\Repositories\RegisterRepository.cs" />
-    <Compile Include="Models\UseCases\Cart\CreateOrderRequest.cs" />
+    <Compile Include="Models\UseCases\CreateOrderRequest.cs" />
     <Compile Include="Models\UseCases\EditProfile\EditProfileRequest.cs" />
     <Compile Include="Models\UseCases\Login\LoginCommand.cs" />
     <Compile Include="Models\UseCases\Login\LoginRequest.cs" />
@@ -193,6 +195,7 @@
     <Compile Include="Models\ValueObjects\DeductStockInfo.cs" />
     <Compile Include="Models\ValueObjects\ReviseStockInfo.cs" />
     <Compile Include="Models\ValueObjects\ShippingInfo.cs" />
+    <Compile Include="Models\ViewModels\CheckoutVM.cs" />
     <Compile Include="Models\ViewModels\EditProfileVM.cs" />
     <Compile Include="Models\ViewModels\LoginVM.cs" />
     <Compile Include="Models\ViewModels\RegisterVM.cs" />

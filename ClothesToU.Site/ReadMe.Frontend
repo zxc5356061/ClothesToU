@@ -396,11 +396,20 @@
 		-public void RemoveItem(int productId)
 		-public void UpdateQty(int productId, int newQty)
 
-[] add /Models/Entities/
+[v] add /Models/Entities/CategoryEntity
+		-public int Id { get; set; }
+		-public string Name { get; set; }
+		-public int DisplayOrder { get; set; }
 
-[] add /Models/Entities/
+[v] add /Models/Entities/CustomerEntity
 
-[] add /Models/Entities/
+[v] add /Models/Entities/OrderProductEntity
+
+[v] add /Models/Entities/OrderItemEntity
+
+[v] add /Models/Entities/OrderEntity
+
+[v] add /Models/ViewModels/CheckoutVM
 
 
 

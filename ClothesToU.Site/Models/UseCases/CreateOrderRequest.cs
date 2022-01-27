@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace ClothesToU.Site.Models.Extensions
+namespace ClothesToU.Site.Models.UseCases
 {
-    public class CartItemExt
+    public class CreateOrderRequest
     {
     }
 }

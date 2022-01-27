@@ -4,28 +4,25 @@
     ViewBag.Title = "Index2";
 }
 
-<h2>全部商品</h2>
-<ol class="breadcrumb" style="background-color:pink;color:black;font-weight: bold;">
-    <li>@Html.ActionLink("首頁", "Index", "Home")</li>
-    <li>@Html.ActionLink("全部商品", "Index2","FrontProducts")</li>
-
-</ol>
+<h1>Clothes To U</h1>
 
 
 <table class="table">
-    
+
     @foreach (var item in Model)
     {
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
                 <img src="~/Files/@item.FileName" style="width:100%; height:350px; object-fit:cover;">
                 <div class="caption">
-                    <h3>@item.Name</h3>
-                    <p>@item.Description</p>
+                    <h4>@item.Name</h4>
+                    <p>售價:$ @item.Price</p>
+                    <p>♥️-顏色:@item.Color</p>
+                    <p>♥️-Size: @item.Size</p>
                     <p>
                         <a href="#" class="btn btn-primary " style="background-color:palevioletred;border-style:hidden;
                         color:whitesmoke" role="button">加入購物車</a>
-                        <a href="#" class="btn btn-default" role="button">馬上購買</a> 
+                        <a href="#" class="btn btn-default" role="button">馬上購買</a>
                     </p>
                 </div>
             </div>
@@ -33,10 +30,35 @@
     }
 
 </table>
-<nav aria-label="...">
+<nav aria-label="Page navigation">
     <ul class="pagination">
-        <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-        
+        <li class="disabled">
+            <span aria-label="Previous">
+                <span aria-hidden="true">«</span>
+            </span>
+        </li>
+        <li class="active"><span>1</span></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">6</a></li>
+        <li><a href="#">7</a></li>
+        <li><a href="#">8</a></li>
+        <li><a href="#">9</a></li>
+        <li><a href="#">10</a></li>
+        <li><a href="#">11</a></li>
+        <li><a href="#">12</a></li>
+        <li><a href="#">13</a></li>
+        <li><a href="#">14</a></li>
+        <li><a href="#">15</a></li>
+        <li><a href="#">16</a></li>
+     
+     
+        <li>
+            <a href="#" aria-label="Next">
+                <span aria-hidden="true">»</span>
+            </a>
+        </li>
     </ul>
 </nav>

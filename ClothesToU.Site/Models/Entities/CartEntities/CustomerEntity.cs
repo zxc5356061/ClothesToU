@@ -5,7 +5,9 @@ using System.Web;
 
 namespace ClothesToU.Site.Models.Entities.CartEntities
 {
-    public class CustomerEntity
-    {
-    }
+	public class CustomerEntity
+	{
+		public int Id { get; set; }
+		public string CustomerAccount { get; set; }
+	}
 }

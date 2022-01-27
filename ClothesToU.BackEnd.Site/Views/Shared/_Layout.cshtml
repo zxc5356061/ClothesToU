@@ -9,24 +9,27 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-default"style="background-color: palevioletred; color: wheat; border-style: hidden; font-weight: bold;">
+    <div class="navbar" style="background-color:lavender;color:black; border-style: hidden; font-weight: bold; ">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Clothes To U", "Index", "Products", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Home", "Index", "Products", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar">
+            <div class="navbar-collapse" style="background-color:lavender; color: black; border-style: hidden; font-weight: bold; ">
                 <ul class="nav navbar-nav">
-                    
+                    <li>@Html.ActionLink("前台商品畫面檢視", "Index2", "Products")</li>
+                  
                 </ul>
             </div>
         </div>
     </div>
-    <div class="container body-content"style=font-weight: bold;">
+    <div class="container body-content" style=font-weight: bold;">
         @RenderBody()
         <hr />
         <footer>
